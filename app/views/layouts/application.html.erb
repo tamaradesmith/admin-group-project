@@ -4,12 +4,63 @@
     <title>AdminGroupProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+<link href="https://fonts.googleapis.com/css?family=Roboto:900&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
+  <article>
+    <div class="nav-bar">
+
+    <div class="nav-user">
+    <%= link_to image_tag("cc-logo.png"), "https://codecore.ca/", alt:"corecord Icon", class:"icon" %>
+
+
+      <div class="nav-item">  Login </div>
+      <%#= link_to "Login",  new_session_path, class:"nav-item"  %>
+      
+
+      <div class="nav-item"> 
+        <%#= current_user.first_name  %>
+        Hudson
+      </div>
+
+      <div class="nav-item">  Log Out </div>
+        <%#= link_to "Log Out", sessions_path, method: :delete, class:"nav-item"  %>
+      
+
+      <div class="nav-item">  Course </div>
+        <%#= link_to "Course", course_path, class:"nav-item"  %>
+
+       <div class="nav-item">  Assignment </div>
+        <%#= link_to "Assigment", assignment_path, class:"nav-item"  %>     
+
+      <div class="nav-item">  Marks </div>
+        <%#= link_to "Marks", marks_path, class:"nav-item"  %>
+
+      <div class="nav-item">  Attendance </div>
+        <%#= link_to "Attendance", attendance_path, class:"nav-item"  %>
+    </div>
+
+
+    <div class="nav-general">
+      <div class="nav-item"> Programs </div>
+        <%#= link_to "Programs", program_path, class:"nav-item"  %>
+             <div class="nav-item"> Contract </div>
+        <%#= link_to "Contract", contract_path, class:"nav-item"  %>
+    </div>
+
+   </div> 
+
+  <div class='content'>
+  
     <%= yield %>
-  </body>
+
+  </div>
+
+
+
+</article>
+</body>
 </html>
