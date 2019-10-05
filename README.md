@@ -4,6 +4,8 @@ It also allows for students to see their grades, attendance, and courses/program
 aaa
 ## Table of contents
 * [Team](#team)
+
+##* [Team](#team)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
