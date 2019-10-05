@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+
+html {
+  height: 100%;
+}
+body {
+  background: ghostwhite;
+  min-height: 100%;
+  font-family: 'Bitter', serif;
+}
+article {
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+}
+img {
+  max-width: 100%;
+}
+h1{
+  font-size: 3em;
+  color: #cb0d0f;
+  text-align: center;
+  font-weight: 900;
+  font-family: 'Roboto', sans-serif;
+}
+h3{
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+.icon {
+  width: 125px;
+}
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  color: ghostwhite;
+  background: #cb0d0f;
+  min-height: 100vh;
+  padding: 0.5em 0.5em;
+  justify-content: space-between;
+  margin-right: 1em;
+}
+.nav-user {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.nav-general {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+.nav-item {
+  padding: 0.5em;
+}
+.nav-item:hover {
+  color: rgba(248, 248, 255, 0.712);
+}
+.content {
+  flex: 1;
+  padding: 0.5em;
+}
+.main-header{
+  height: 150px;
+}
+.images{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #cb0d0f;
+  padding: 1em;
+}
+.divSpace{
+  height: 50px;
+}
