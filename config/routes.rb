@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :courses
    root 'welcome#home'
   resources :attendance, only: [:index, :show, :edit, :update]
-  
+  resources :users do
+    collection { post :import }
+  end
 end
