@@ -1,0 +1,9 @@
+<h3>All Classes</h3>
+
+<% @courses.each do |course| %>
+  <div>
+      <h2><%= link_to course.title, course_path(course) %></h2>
+      <p><%= course.session %></p>
+      <hr>
+  </div>
+<% end %>
