@@ -1,0 +1,13 @@
+<h1>Show Page</h1>
+  <div>
+    <img src="<%= @course.picture_url%>">
+    <h3>Class: <%= @course.title %></h3>
+    <p>Session: <%= @course.session %></p>
+    <p>Slack Group: <%= @course.slack_group %></p>
+    <p>Start Date: <%= @course.start %></p>
+    <p>End Date: <%= @course.end %></p>
+    <p>Program: <%= @program %></p>
+    <p>Status: <%= @status %></p>
+    <%= link_to "Edit", edit_course_path(@course)%>
+    <%= link_to "Delete", course_path(@course), method: :delete, data:{confirm: "Are you sure?"}%>
+  </div>
