@@ -1,0 +1,35 @@
+<h1>Create A User</h1>
+
+    <% if user.name == "Admin"%>
+        <%= form_with model: @user, local: true do |f| %>
+            <div>
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name %>
+            </div>
+            <div>
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name %>
+            </div>
+            <div>
+                <%= f.label :email %>
+                <%= f.email_field :email %>
+            </div>
+            <div>
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+            </div>
+            <div>
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation %>
+            </div>
+            <%= f.submit "Create User", class: "btn btn-primary" %>
+    <%else%>
+        <div>
+            <p>Perhaps you don't have the correct permissions to access this...</p>
+            <p>You could try logging in?</p>
+            <%= link_to "Login", new_session_path %>
+            <hr>
+            <p>If you think you should have the permissions already, please contact your administration.</p>
+        </div>
+    <% end %>
+<% end %>
