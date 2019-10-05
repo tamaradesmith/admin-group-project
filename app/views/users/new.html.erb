@@ -23,6 +23,16 @@
                 <%= f.password_field :password_confirmation %>
             </div>
             <%= f.submit "Create User", class: "btn btn-primary" %>
+
+            <div>
+            <h4>OR</h4>
+            <hr>
+            <h4>Import Users With CSV</h4>
+            <%= form_with(import_users_path, multipart: true) do |f| %>
+                <%= f.file_field :file %>
+                <%= f.submit "Import CSV" %>
+            <% end %>
+            </div>
     <%else%>
         <div>
             <p>Perhaps you don't have the correct permissions to access this...</p>
