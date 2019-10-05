@@ -20,7 +20,7 @@ Status.destroy_all
 User.destroy_all
 
 
-NUM_USERS = 100
+NUM_USERS = 30
 NUM_USERS_INSTUCTOR = 10
 NUM_ASSIGNMENTS = 15
 PASSWORD = 'corecode'
@@ -31,19 +31,10 @@ ROLES.each do |roles|
 Role.create( role: roles
 )
 end
-
-# Role.create(
-#   role: "instructor"
-# )
-
-# Role.create(
-#   role: "admin"
-# )
-
  
 admin_user = User.create(
-  first_name = "Ian",
-  last_name = "Mck",
+  first_name: "Ian",
+  last_name: "Mck",
   email: "ian@example.com",
   password: PASSWORD,
   role_id: 3
@@ -75,8 +66,9 @@ NUM_USERS.times do
   )
 end
 
+# byebug
   NUM_ASSIGNMENTS.times do
-    Assignments.create(
+    Assignment.create(
       name: Faker::Space.constellation,
       description: Faker::GreekPhilosophers.quote
     )
@@ -85,7 +77,7 @@ end
   PROGRAMS = ["bootcamp", "1-year Coding", "1-business", "coding fundamental"]
 
   PROGRAMS.each do |program|
-    Programs.create(
+    Program.create(
       name: program
     )
   end
@@ -102,24 +94,22 @@ end
 
 COURSES.each do |course|
   i = 1
-  course.create(
+  Course.create(
     title: course,
     session: Faker::Date.backward(days: 30),
     start: Faker::Date.backward(days: 30),
     end: Faker::Date.forward(days: 90),
     slack_group: "#{course}_slack",
-    status: 1,
+    status_id: 1,
     program_id: i
     )
-    i =+ 1
+    i += 1
 end
 
 
 
-  user = Users.all
+  user = User.all
   course = Course.all
 
   puts user.count
   puts course.count 
-
-  puts User.first
