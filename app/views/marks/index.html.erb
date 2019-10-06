@@ -1,0 +1,26 @@
+<h3>User Details</h3>
+<%
+=begin%>
+ This is the page which student can see his or her marks for evey assignment
+<%
+=end%>
+<div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title"><%= @user.full_name%> in the course <%= @course.title%></h5>
+    </div>
+</div>
+<br>
+<h4>Marks Details</h4>
+<% @marks.each do |mark| %>
+<div style="display:flex;justify-content:space-around">
+    <span><%= mark.assignment_name %></span>
+    <%if (mark.id ) %>
+            <%= mark.grade %>
+    <% else %>
+            no mark yet
+    <%end%>
+
+</div>
+<% end %>
+
+<%= will_paginate @marks %>

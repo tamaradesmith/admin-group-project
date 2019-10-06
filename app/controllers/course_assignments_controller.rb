@@ -1,13 +1,12 @@
 class CourseAssignmentsController < ApplicationController
     before_action :find_course_assignment, only: [ :update, :destroy]
-    before_action :find_course
+    before_action :find_course, except: [:destroy]
     def index
         @assignments = Assignment.select('assignments.name, assignments.id, course_assignments.due_date , course_assignments.user_id, courses.id as course_id, course_assignments.id as relation_ship_id ').joins("LEFT JOIN course_assignments ON course_assignments.assignment_id = assignments.id LEFT JOIN courses ON course_assignments.course_id = courses.id AND courses.id = #{@course.id}").paginate(page:params[:page],per_page:10)
         @markers = User.all().where("role_id = 2")
     end
     
     def create
-        @course = Course.find(params[:course_id])
         course_assignment = CourseAssignment.new course_assignment_params
         course_assignment.course = @course
         if course_assignment.save
@@ -24,6 +23,7 @@ class CourseAssignmentsController < ApplicationController
     end
     
     def destroy
+        @course = Course.find(@course_assignment.course_id)
         @course_assignment.destroy
         redirect_to course_assignments_path(@course)
     end
