@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only:[:new, :create]
+  resources :users, only:[:new, :create, :edit, :destroy]
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   #This should work for editing password, but I'm not entirely sure
   #Going to test this out
-  resources :users
+  resources :user
   get '/users/:id/edit_password', {to: 'users#edit_password', as: :edit_user_password}
+  patch '/users/:id', {to: 'users#update'}
 end
