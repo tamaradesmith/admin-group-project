@@ -1,63 +1,44 @@
 <h4>Create A User</h4>
 
-    <% if can? :manage, :all%>
-        <%= form_with model: @user, local: true do |f| %>
+<% if can? :manage, :all%>
+    <%= form_with model: @user, local: true do |f| %>
+        <div class="form">
+            
+            <%= f.label :first_name, class:'grid-label' %>
+            <%= f.text_field :first_name, class:"grid-field" %>
+        
+            <%= f.label :last_name, class:'grid-label' %>
+            <%= f.text_field :last_name, class:"grid-field" %>
+        
+            <%= f.label :email, class:'grid-label' %>
+            <%= f.email_field :email, class:"grid-field" %>
+        
+            <%= f.label :password, class:'grid-label' %>
+            <%= f.password_field :password, class:"grid-field" %>
+        
+            <%= f.label :password_confirm, class:'grid-label grid-row-label' %>
+            <%= f.password_field :password_confirmation, class:"grid-field grid-row-field" %>
+            
+            <%= f.submit "Create User", class:"grid-button btn grid-row-button" %>
+        </div>
+    
+    <% end %>
+
+        <div class="divSpace"></div>
+
+        <h4>Import Users With CSV</h4>
+        <%#= form_with(import_users_path, multipart: true) do |f| %>
             <div class="form">
-              
-                    <%= f.label :first_name, class:'grid-label' %>
-                    <%= f.text_field :first_name, class:"grid-field" %>
-              
-               
-                    <%= f.label :last_name, class:'grid-label' %>
-                    <%= f.text_field :last_name, class:"grid-field" %>
-               
-                    <%= f.label :email, class:'grid-label' %>
-                    <%= f.email_field :email, class:"grid-field" %>
-               
-                    <%= f.label :password, class:'grid-label' %>
-                    <%= f.password_field :password, class:"grid-field" %>
-              
-                    <%= f.label :password_confirm, class:'grid-label grid-row-label' %>
-                    <%= f.password_field :password_confirmation, class:"grid-field grid-row-field" %>
-              
-                <%= f.submit "Create User", class:"grid-button btn grid-row-button" %>
-            </div>
-            <div>
-                <%= f.label :last_name %>
-                <%= f.text_field :last_name %>
-            </div>
-            <div>
-                <%= f.label :email %>
-                <%= f.email_field :email %>
-            </div>
-            <div>
-                <%= f.label :password %>
-                <%= f.password_field :password %>
-            </div>
-            <div>
-                <%= f.label :password_confirmation %>
-                <%= f.password_field :password_confirmation %>
-            </div>
-            <%= f.submit "Create User", class: "btn btn-primary" %>
-            <% end %>
-            <div>
-            <h4>OR</h4>
-            <hr>
-            <h4>Import Users With CSV</h4>
-            <%#= form_with(import_users_path, multipart: true) do |f| %>
-                <div class="form">
                     <%#= f.file_field :file, class:'grid-label' %>
                     <%#= f.submit "Import CSV", class:"grid-button btn" %>
-                </div>
-            <%# end %>
-   
-        <div>
+            </div>
+        <%# end %>
 
-            <p>Not permitted to create new User.
-            Please <%= link_to "login", new_session_path %>,
-     
-           or if you think you should have the permissions already, please contact your administration.</p>
-        </div>
+<% else %>
+    <div>
+        <p>Not permitted to create new user.
+        Please <%= link_to "login", new_session_path %>, or if you think you should have the permissions already, please contact your administration.</p>
+    </div>
      
     
 <% end %>
