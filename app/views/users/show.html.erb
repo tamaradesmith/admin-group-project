@@ -1,5 +1,5 @@
-<h4>User Information Page</h4>
-<div class="divSpace">
+<%# <h4>User Information Page</h4> %>
+<div class="divSpace"> </div>
 
 <div class="user-div">
 
@@ -18,5 +18,13 @@
   <% @user.courses.each do |course|  %>
 <p class="grid-course"> <%= course.title %> </p> 
 <% end %>
+<p class="grid-label"> Address: </p>
+<p class="grid-address"> <%= @user.address %> </p>
+
+<p class="grid-label"> Phone: </p>
+<p class="grid-address"> <%= @user.phone_number %> </p>
+
 
 </div>
+<div class="divSpace"> </div>
+<%= link_to "Click to change password", root_path, class:"grid-password" %>

@@ -13,8 +13,8 @@
   <article>
     <div class="nav-bar">
 
-    <div class="nav-user">
-    <%= link_to image_tag("cc-logo.png"), "https://codecore.ca/", alt:"corecord Icon", class:"icon" %>
+      <div class="nav-user">
+      <%= link_to image_tag("cc-logo.png"), "https://codecore.ca/", alt:"corecord Icon", class:"icon" %>
 
 
 
@@ -22,10 +22,10 @@
 <% if user_signed_in? %>
 
       <div class="user"> 
-        <%= current_user.first_name %>
+              <%= link_to "#{current_user.first_name}", user_path(current_user.id), class:"nav-item"  %>
       </div>
 
-
+ <%= link_to "Home", root_path, class:"nav-item"  %>
       <div class="nav-item">  Course </div>
         <%#= link_to "Course", course_path, class:"nav-item"  %>
  
@@ -43,10 +43,12 @@
     </div>
 <% else %>
 
+ <%= link_to "Home", root_path, class:"nav-item"  %>
+ 
           <%= link_to "Login",  new_session_path, class:"nav-item"  %>
 
+  </div>
 <% end %>
-
 
     <div class="nav-general">
       <div class="nav-item"> Programs </div>
