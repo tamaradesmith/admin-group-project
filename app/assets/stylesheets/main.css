@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bitter&display=swap");
 
 html {
   height: 100%;
@@ -7,7 +7,8 @@ html {
 body {
   background: ghostwhite;
   min-height: 100%;
-  font-family: 'Bitter', serif;
+  /* font-family: "Bitter", serif; */
+  font-weight: 100;
 }
 article {
   font-size: 1.5em;
@@ -17,16 +18,21 @@ article {
 img {
   max-width: 100%;
 }
-h1{
+h1 {
   font-size: 3em;
   color: #cb0d0f;
   text-align: center;
   font-weight: 900;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-h3{
+h3 {
   font-size: 1.5em;
   font-weight: 500;
+  margin-bottom: 1em;
+}
+h4{
+  font-size: 1.2em;
+  font-weight: 200;
   margin-bottom: 1em;
 }
 .icon {
@@ -54,24 +60,85 @@ h3{
 }
 .nav-item {
   padding: 0.5em;
+  text-decoration: none;
+}
+.nav-item:visited {
+  color: ghostwhite;
+  text-decoration: none;
 }
 .nav-item:hover {
   color: rgba(248, 248, 255, 0.712);
 }
+.admin-nav{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: ghostwhite;
+  background: #cb0d0f;
+  padding: .5em;
+}
+.user {
+  font-weight: 600;
+  font-size: 1.1em;
+   padding: 0.5em;
+}
+
 .content {
   flex: 1;
   padding: 0.5em;
 }
-.main-header{
+.main-header {
   height: 150px;
 }
-.images{
+.images {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   background: #cb0d0f;
   padding: 1em;
+
 }
-.divSpace{
+.image{
+  max-width: 20%;
+}
+.divSpace {
   height: 50px;
+}
+.form {
+  /* border: 1px solid #cb0d0f; */
+  display: grid;
+  grid-template-columns: 150px 100px 150px;
+  grid-gap: 10px;
+  width: 600px;
+}
+.grid-label {
+  grid-column: 1/2;
+}
+.grid-field {
+  grid-column: 2/4;
+}
+.grid-button {
+  grid-column: 3/4;
+}
+.grid-row-label{
+  grid-row: 5/7;
+}
+.grid-row-field{
+  grid-row: 6/7;
+}
+.grid-row-button{
+  grid-row: 7/8;
+}
+.btn {
+   font-family: "Bitter", serif;
+  border: 1px solid #cb0d0f;
+  border-radius: 10px;
+  background: transparent;
+  padding: 0.25em 0.5em;
+  font-size: 0.75em;
+}
+.btn:hover {
+  background: #cb0d105d;
+  transition: 0.5s;
 }

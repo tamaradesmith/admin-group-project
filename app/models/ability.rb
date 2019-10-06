@@ -48,6 +48,5 @@ class Ability
     can :read, :Attendance do |attendance|
       attendance.user == user
     end
-
   end
 end

@@ -4,7 +4,7 @@
     <title>AdminGroupProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-<link href="https://fonts.googleapis.com/css?family=Roboto:900&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
   </head>
@@ -17,22 +17,18 @@
     <%= link_to image_tag("cc-logo.png"), "https://codecore.ca/", alt:"corecord Icon", class:"icon" %>
 
 
-      <div class="nav-item">  Login </div>
-      <%#= link_to "Login",  new_session_path, class:"nav-item"  %>
-      
 
-      <div class="nav-item"> 
-        <%#= current_user.first_name  %>
-        Hudson
+      
+<% if user_signed_in? %>
+
+      <div class="user"> 
+        <%= current_user.first_name %>
       </div>
 
-      <div class="nav-item">  Log Out </div>
-        <%#= link_to "Log Out", sessions_path, method: :delete, class:"nav-item"  %>
-      
 
       <div class="nav-item">  Course </div>
         <%#= link_to "Course", course_path, class:"nav-item"  %>
-
+ 
        <div class="nav-item">  Assignment </div>
         <%#= link_to "Assigment", assignment_path, class:"nav-item"  %>     
 
@@ -41,7 +37,15 @@
 
       <div class="nav-item">  Attendance </div>
         <%#= link_to "Attendance", attendance_path, class:"nav-item"  %>
+     
+        <%= link_to "Log Out", sessions_path, method: :destroy, data: {confirm: "Are you sure you want to log out?"}, class:"nav-item"  %>
+
     </div>
+<% else %>
+
+          <%= link_to "Login",  new_session_path, class:"nav-item"  %>
+
+<% end %>
 
 
     <div class="nav-general">
@@ -55,6 +59,13 @@
 
   <div class='content'>
   
+  <div class="admin-nav">
+    <div>Programs</div>
+    <div>Courses</div>
+    <div>Users</div>
+
+  </div>
+
     <%= yield %>
 
   </div>
