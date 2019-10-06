@@ -1,13 +1,24 @@
-<h1>Show Page</h1>
-  <div>
-    <img src="<%= @course.picture_url%>">
-    <h3>Class: <%= @course.title %></h3>
-    <p>Session: <%= @course.session %></p>
-    <p>Slack Group: <%= @course.slack_group %></p>
-    <p>Start Date: <%= @course.start %></p>
-    <p>End Date: <%= @course.end %></p>
-    <p>Program: <%= @program %></p>
-    <p>Status: <%= @status %></p>
-    <%= link_to "Edit", edit_course_path(@course)%>
-    <%= link_to "Delete", course_path(@course), method: :delete, data:{confirm: "Are you sure?"}%>
+<h4>Show Page</h4>
+<div class="divSpace">
+  <div class="user-div">
+
+    <%=image_tag "#{@course.picture_url}", class:" user-pic"%>
+<p class="grid-user-label"> Class: </p>
+ <p>   <%= @course.title %></p>
+
+
+    <p  class="grid-user-label">Program: </p>
+    <p> <%= @program %></p>
+    <p  class="grid-user-label"> Session: </p>
+    <p> <%= (@course.session) %></p>
+    <p  class="grid-user-label"> End Date:</p> 
+    <p> <%= (@course.end).to_formatted_s(:long) %></p>
+    <p  class="grid-user-label">Status:  </p>
+    <p> <%= @status %></p>
+    <p class="grid-user-label"> Slack Group: </p>
+    <p> <%= @course.slack_group %></p>
+    <div class="grid-user-info">
+    <%= link_to "Edit", edit_course_path(@course), class:"course-button btn" %>
+    <%= link_to "Delete", course_path(@course), method: :delete, class:"course-button btn", data:{confirm: "Are you sure?"}%>
+    </div>
   </div>
