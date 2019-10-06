@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-      @current_edit_user = User.find_by_id(params[:id])
+      # @current_edit_user = User.find_by_id(params[:id])
       @roles= Role.all
   end
 
@@ -46,7 +46,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # To update existing password, must edit then update password
     password_is_ok = true
     if user_params[:current_password]
       if user_params[:current_password] != nil
@@ -60,7 +59,7 @@ class UsersController < ApplicationController
 
     if password_is_ok 
       if @user.update user_params
-        redirect_to edit_user_path
+        redirect_to user_path
       else
         render :edit
       end
@@ -72,7 +71,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:status, :first_name, :last_name, :email, :password, :password_confirmation, :address, :picture_url, :role_id)
+
   end
 
   def find_user

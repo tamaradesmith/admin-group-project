@@ -1,16 +1,14 @@
 class User < ApplicationRecord
   require 'csv'
+  attr_accessor :current_password
   has_secure_password
   belongs_to :role
 
   has_many :attendances
   has_many :marks
-  attr_accessor :current_password
 
   has_many :enrollments, dependent: :nullify
-
   has_many :courses, through: :enrollments, source: :course, dependent: :nullify
-
   has_many :assignments, dependent: :nullify
   has_many :course_assignments, through: :marks, source: :assignments
 
