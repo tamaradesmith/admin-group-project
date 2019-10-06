@@ -12,7 +12,9 @@
 <th> Role </th>
 <th> Course </th>
 <th> Status </th>
-
+		<% if can? :manage, :all%>
+		<th> Edit </th>
+		<% end %>
 <tr>
 <% @users.each do |user| %>
    <tr>
@@ -29,8 +31,13 @@
 					inactive 
 				<% end %>
 				 </td>
-						
+				 <td>
+						<% if can? :manage, :all%>
+						<%= link_to "Edit Info", edit_user_path(user.id), class:"user-link" %>
+						<% end %>
+						</td>
     </tr>
+
 <% end %>
 
 

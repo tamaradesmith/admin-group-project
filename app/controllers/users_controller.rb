@@ -33,7 +33,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-    def edit
+  def edit
+      @current_edit_user = User.find_by_id(params[:id])
+      @roles= Role.all
   end
 
   def edit_password
@@ -46,7 +48,6 @@ class UsersController < ApplicationController
   def update
     # To update existing password, must edit then update password
     password_is_ok = true
-    byebug
     if user_params[:current_password]
       if user_params[:current_password] != nil
         if user_params[:password] != nil

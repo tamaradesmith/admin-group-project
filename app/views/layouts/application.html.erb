@@ -59,7 +59,7 @@
    </div> 
 
   <div class='content'>
-  
+  <% if can? :manage, :all%>
   <div class="admin-nav">
     <div class="nav-item">Programs</div>
     <%= link_to "Course", courses_path, class:"nav-item"  %>
@@ -67,6 +67,8 @@
 
   </div>
 
+ <%end%>
+ <div class="divSpace"> </div>
     <%= yield %>
 
   </div>
