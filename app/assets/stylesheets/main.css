@@ -75,3 +75,7 @@ h3{
 .divSpace{
   height: 50px;
 }
+.user-div{
+  display: grid;
+  
+}
