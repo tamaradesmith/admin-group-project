@@ -1,0 +1,20 @@
+<h1>Users List</h1>
+
+<%= form_with model: :User do |f| %>
+	<%= f.radio_button :Users, :All, onclick: "$(this).closest('form').submit();" %>
+	<%= f.radio_button :Users, :Students, onclick: "$(this).closest('form').submit();" %>
+	<%= f.radio_button :Users, :Instructors, onclick: "$(this).closest('form').submit();" %>
+	<%= f.radio_button :Users, :Admin, onclick: "$(this).closest('form').submit();" %>
+<% end %>
+
+<ul>
+<% @users.each do |user| %>
+    <li>
+        <%= link_to user.full_name, user, user.role_id %>
+    </li>
+<% end %>
+
+</ul>
+
+<!-- Apply filter based on User roles like students, instructors, and admins -->
+<!-- Job.includes(:attachments).where(file_type: ["logo", "image"]) -->

@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     redirect_to(root_url, notice: "Imported User file.")
   end
 
+  def list
+    @users = User.all
+  end
+
   private
 
   def user_params
