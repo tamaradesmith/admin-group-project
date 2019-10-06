@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   resources :user
   get '/users/:id/edit_password', {to: 'users#edit_password', as: :edit_user_password}
   patch '/users/:id', {to: 'users#update'}
+  
+  # For Program
+  resources :programs
 end

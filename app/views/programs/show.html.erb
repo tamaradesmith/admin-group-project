@@ -1,0 +1,6 @@
+<h1>Show Page</h1>
+  <div>
+    <h3>Program: <%= @program.name %></h3>
+    <%= link_to "Edit", edit_program_path(@program)%>
+    <%= link_to "Delete", program_path(@program), method: :delete, data:{confirm: "Are you sure?"}%>
+  </div>
