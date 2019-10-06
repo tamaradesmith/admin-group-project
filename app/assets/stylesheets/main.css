@@ -124,7 +124,11 @@ h4 {
 .grid-button {
   grid-column: 3/4;
 }
-
+.grid-dropdown {
+  grid-column: 2/4;
+  font-size: .8em;
+  background: white;
+}
 .grid-row-label {
   grid-row: 5/7;
 }
@@ -133,6 +137,26 @@ h4 {
 }
 .grid-row-button {
   grid-row: 7/8;
+}
+.grid-course{
+  display: grid;
+  grid-template-columns: auto 150px;
+  grid-gap: 10px;
+  width: 600px;
+
+
+}
+.grid-course-item{
+  padding: .25em;
+  /* margin: .5em 0; */
+}
+.grid-course-header{
+  padding: .25em;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.grid-background{
+  background: #cb0d1049;
 }
 .form-edit {
   /* border: 1px solid #cb0d0f; */
@@ -219,4 +243,15 @@ background: #cb0d1049;
   text-decoration: none;
   color: black;
 
+}
+.course-button{
+  color: black;
+  text-decoration: none;
+  font-size: .75em;
+  padding: .5em .75em;
+}
+.course-link{
+    text-decoration: none;
+  color: black;
+  font-size: 1em;
 }
