@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-  
+    # @course = @user.courses.find_by(user: @user.id)
   end
 #This will allow for users to be imported and then afterwards redirects
   def import
