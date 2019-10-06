@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   #Going to test this out
   resources :users
   get '/users/:id/edit_password', {to: 'users#edit_password', as: :edit_user_password}
+
+  # For Program
+  resources :programs
 end
