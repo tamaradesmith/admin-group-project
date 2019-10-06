@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
     if password_is_ok 
       if @user.update user_params
-        redirect_to edit_user_path
+        redirect_to user_path
       else
         render :edit
       end
