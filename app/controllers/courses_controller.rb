@@ -23,10 +23,15 @@ class CoursesController < ApplicationController
   end
 
   def show
+<<<<<<< HEAD
     @enrollment = Enrollment.new
     @program = @course.program.name
     @status = @course.status.status
     @students = User.order(first_name: :asc).where('role_id = 1')
+=======
+    @program = @course.program.name
+    @status = @course.status.status
+>>>>>>> origin/development
   end
 
   def edit

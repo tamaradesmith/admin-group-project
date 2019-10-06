@@ -10,6 +10,71 @@
   </head>
 
   <body>
+  <article>
+    <div class="nav-bar">
+
+      <div class="nav-user">
+      <%= link_to image_tag("cc-logo.png"), "https://codecore.ca/", alt:"corecord Icon", class:"icon" %>
+
+
+
+      
+<% if user_signed_in? %>
+
+      <div class="user"> 
+              <%= link_to "#{current_user.first_name}", user_path(current_user.id), class:"nav-item"  %>
+      </div>
+
+ <%= link_to "Home", root_path, class:"nav-item"  %>
+        <%= link_to "Course", courses_path, class:"nav-item"  %>
+ 
+       <div class="nav-item">  Assignment </div>
+        <%#= link_to "Assigment", assignment_path, class:"nav-item"  %>     
+
+      <div class="nav-item">  Marks </div>
+        <%#= link_to "Marks", marks_path, class:"nav-item"  %>
+
+      <div class="nav-item">  Attendance </div>
+        <%#= link_to "Attendance", attendance_path, class:"nav-item"  %>
+     
+        <%= link_to "Log Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"nav-item"  %>
+
+    </div>
+<% else %>
+
+ <%= link_to "Home", root_path, class:"nav-item"  %>
+ 
+          <%= link_to "Login",  new_session_path, class:"nav-item"  %>
+
+  </div>
+<% end %>
+
+    <div class="nav-general">
+      <div class="nav-item"> Programs </div>
+        <%#= link_to "Programs", program_path, class:"nav-item"  %>
+             <div class="nav-item"> Contract </div>
+        <%#= link_to "Contract", contract_path, class:"nav-item"  %>
+    </div>
+
+   </div> 
+
+  <div class='content'>
+  <% if can? :manage, :all%>
+  <div class="admin-nav">
+    <div class="nav-item">Programs</div>
+    <%= link_to "Course", courses_path, class:"nav-item"  %>
+      <%= link_to "Users", users_path, class:"nav-item"  %>
+
+  </div>
+
+ <%end%>
+ <div class="divSpace"> </div>
     <%= yield %>
-  </body>
+
+  </div>
+
+
+
+</article>
+</body>
 </html>
