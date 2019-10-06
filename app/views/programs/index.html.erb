@@ -1,7 +1,14 @@
-<h3>All Programs</h3>
 
-<% @programs.each do |program| %>
-  <div>
-      <h2><%= link_to program.name, program_path(program) %></h2>
+<%= link_to "Click to create new program", new_program_path, class:'course-link'%>
+<div class="divSpace"></div>
+<h4>All Programs</h4>
+
+<% @programs.each_with_index do |program, index| %>
+  <div class="grid-course">
+  <% if index.odd? %>
+      <%= link_to program.name, program_path(program), class:"user-link grid-background" %>
+      <% else %>
+        <%= link_to program.name, program_path(program), class:"user-link" %>
+      <% end %>
   </div>
 <% end %>
