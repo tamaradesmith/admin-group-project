@@ -1,7 +1,9 @@
 
 
 <%= link_to "Click to create new user", new_user_path, class:'course-link'%>
-
+<% @admin = User.all.select { |user| user.role_id == 3 } %>
+<% @instructor = User.all.select { |user| user.role_id == 2 } %>
+<% @student = User.all.select { |user| user.role_id == 1 } %>
 <div class="divSpace"> </div>
 
 <h4>Users List</h4>
@@ -21,7 +23,8 @@
 		<th> Edit </th>
 		<% end %>
 <tr>
-<% @users.each do |user| %>
+
+<% @student.each do |user| %>
    <tr>
       <td>  <%= link_to user.full_name, user_path(user.id), class:"user-link" %> </td>
 			<td>  <%= user.id %> </td>

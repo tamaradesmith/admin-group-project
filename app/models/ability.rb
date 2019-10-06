@@ -31,6 +31,24 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     
+    # Do for assignments
+    # admin has all
+    # Instructor has all
+    # Student has only theirs
+
+
+    # Do for courses
+    # Admin has all 
+    # Instructor has only assigned
+    # Student has only assigned
+
+
+    # Show page
+    # Admin can see all
+    # Instructor can see all of courses they are apart of
+    # Student can only see theirs
+
+    
     user ||= User.new # guest user (not logged in)
       if user.role_id == 3
         can :manage, :all
