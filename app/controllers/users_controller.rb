@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  
-  before_action :find_user, only: [:show]
+  before_action :authenticate_user!, except: [:index]
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def new
       @user = User.new
@@ -31,6 +31,41 @@ class UsersController < ApplicationController
 
   def list
     @users = User.all
+  end
+
+    def edit
+  end
+
+  def edit_password
+    @user = current_user
+  end
+
+  def delete
+  end
+
+  def update
+    # To update existing password, must edit then update password
+    password_is_ok = true
+    byebug
+    if user_params[:current_password]
+      if user_params[:current_password] != nil
+        if user_params[:password] != nil
+          if user_params[:current_password] == user_params[:password] || user_params[:password] != user_params[:password_confirmation]
+            password_is_ok = false
+          end
+        end
+      end
+    end
+
+    if password_is_ok 
+      if @user.update user_params
+        redirect_to edit_user_path
+      else
+        render :edit
+      end
+    else
+      render :edit_password
+    end
   end
 
   private

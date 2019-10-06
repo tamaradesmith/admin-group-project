@@ -1,0 +1,62 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg|%>
+    <li><%=msg%></li>
+    <% end %>
+  </ul>
+<%end%>
+
+<!--  -->
+
+<% if can? :manage, :all%>
+
+  <% @current_edit_user = User.find_by_id(params[:id])%>
+
+  <%= link_to "Change YOUR Password", edit_user_password_path(@current_edit_user) %>
+  
+  <%= form_for @current_edit_user do |f|%>
+    <div class="user_input">
+      <div class="input_field">
+        <!-- Edit whether user is a part of CodeCore -->
+        <%= f.label :status %>
+        <%= f.text_field :status %>      
+      </div>
+      <!-- Basic User info -->
+      <div class="input_field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>      
+      </div>
+      <div class="input_field">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>      
+      </div>
+      <div class="input_field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>      
+      </div>
+      <div class="input_field">
+        <%= f.label :phone_number %>
+        <%= f.text_field :phone_number %>      
+      </div>
+
+      <div class="input_field">
+        <%= f.label :address %>
+        <%= f.text_field :address %>      
+      </div>
+      <!-- What photo is displayed as profile picture -->
+      <div class="input_field">
+        <%= f.label :picture_url %>
+        <%= f.text_field :picture_url %>      
+      </div>
+
+      <div class="input_field">
+        <%= f.label :role_id %>
+        <%= f.text_field :role_id %>      
+      </div>
+      <%= f.submit 'Submit', :class => 'button' %>
+    </div>
+  <%end%>
+<%end%>

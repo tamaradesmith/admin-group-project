@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   resources :users do
     collection { post :import }
   end
+
+  #This should work for editing password, but I'm not entirely sure
+  #Going to test this out
+  resources :users
+  get '/users/:id/edit_password', {to: 'users#edit_password', as: :edit_user_password}
 end
