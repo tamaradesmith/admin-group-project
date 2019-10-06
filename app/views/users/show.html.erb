@@ -1,22 +1,40 @@
-<h4>User Information Page</h4>
-<div class="divSpace">
+<%# <h4>User Information Page</h4> %>
+<div class="divSpace"> </div>
 
 <div class="user-div">
 
 <%= image_tag "#{@user.picture_url}", class:"grid-image user-pic" %>
 
-<p> First name: </p>
+<p class="grid-user-label"> First name: </p>
 <p> <%= @user.first_name %> </p>
 
-<p> Last name: </p>
+<p class="grid-user-label"> Last name: </p>
 <p> <%= @user.last_name %> </p>
 
-<p> Role: </p>
+<p class="grid-user-label"> Role: </p>
 <p> <%= @user.role.role %> </p>
 
-<p> Course: </p>
+<p class="grid-user-label"> Course: </p>
   <% @user.courses.each do |course|  %>
 <p class="grid-course"> <%= course.title %> </p> 
 <% end %>
+<p class="grid-user-label"> Address: </p>
+<p class="grid-user-info"> <%= @user.address %> </p>
+
+<p class="grid-user-label"> Phone: </p>
+<p class="grid-user-info"> <%= @user.phone_number %> </p>
+
+<p class="grid-user-label"> Status: </p>
+<p class="grid-user-info">
+  <% if @user.status %> active 
+  <% else %>
+  inactive
+  <% end %>
+
+  <p class="grid-user-label"> Join Date: </p>
+<p class="grid-user-info"> <%= (@user.created_at).to_formatted_s(:long)  %> </p>
+   </p>
 
 </div>
+<div class="divSpace"> </div>
+<%= link_to "Click to change password", root_path, class:"grid-password" %>

@@ -1,0 +1,9 @@
+<h3>Show Page</h3>
+<div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title"><%= @assignment.name%></h5>
+        <p class="card-text"><%= @assignment.description%></p>
+        <%= link_to "Edit", edit_assignment_path(@assignment), class:"btn btn-warning "%>
+        <%= link_to "Delete", assignment_path(@assignment), class:"btn btn-danger ", method: :delete, data:{confirm: "Are you sure?"}%>
+    </div>
+</div>
