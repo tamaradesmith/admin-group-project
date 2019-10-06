@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :attendances
   has_many :marks
-
+  attr_accessor :current_password
 
   has_many :enrollments, dependent: :nullify
 
