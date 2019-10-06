@@ -1,6 +1,6 @@
 <h1>Create A User</h1>
 
-    <% if user.name == "Admin"%>
+    <% if can? :manage, :all%>
         <%= form_with model: @user, local: true do |f| %>
             <div>
                 <%= f.label :first_name %>
@@ -23,7 +23,7 @@
                 <%= f.password_field :password_confirmation %>
             </div>
             <%= f.submit "Create User", class: "btn btn-primary" %>
-
+            <% end %>
             <div>
             <h4>OR</h4>
             <hr>
@@ -41,5 +41,5 @@
             <hr>
             <p>If you think you should have the permissions already, please contact your administration.</p>
         </div>
-    <% end %>
+    
 <% end %>
