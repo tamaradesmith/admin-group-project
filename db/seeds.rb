@@ -34,10 +34,14 @@ end
  
 admin_user = User.create(
   first_name: "Ian",
-  last_name: "Mck",
+  last_name: "Mckinnon",
   email: "ian@example.com",
   password: PASSWORD,
-  role_id: 3
+  role_id: 3,
+  address: Faker::Address.street_address,
+  phone_number: Faker::PhoneNumber.cell_phone,
+  picture_url: 'https://i.pinimg.com/736x/d6/c8/bc/d6c8bc86b0f8a5ae829a4a9b992e8b51--cat-stuff-funny-puppies.jpg',
+  status: true
 )  
 
 
@@ -49,8 +53,12 @@ NUM_USERS_INSTUCTOR.times do
     last_name: last_name,
     email: "#{first_name}.#{last_name}@example.com",
     password: PASSWORD,
-    role_id: 2
-    )
+    role_id: 2,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    picture_url: 'http://randomfunnycat.com/wp-content/uploads/2017/03/Ragdoll-Cat-Colors-seal-mitted.jpg',
+    status: true
+  )
 
 end
 
@@ -62,11 +70,18 @@ NUM_USERS.times do
     last_name: last_name,
     email: "#{first_name}.#{last_name}@example.com",
     password: PASSWORD,
-    role_id: 1
+    role_id: 1,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    picture_url: 'https://i.pinimg.com/474x/c5/51/27/c55127c91da74d2d03886a07e3db06c7--ragdoll-cats-animal-pics.jpg',
+    status: true
   )
 end
 
-# byebug
+USERS = User.all
+
+
+
   NUM_ASSIGNMENTS.times do
     Assignment.create(
       name: Faker::Space.constellation,
@@ -106,6 +121,14 @@ COURSES.each do |course|
     i += 1
 end
 
+USERS.each do |user|
+  Enrollment.create(
+    user_id:  user.id,
+    course_id: rand(1..4),
+  ) 
+end
+
+# byebug
 
 
   user = User.all

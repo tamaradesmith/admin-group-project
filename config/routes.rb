@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :users, only:[:new, :create]
-  resources :sessions, only:[:new, :create, :destroy]
+  resources :users, only:[:new, :create, :edit, :destroy]
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :assignments
   
@@ -23,4 +25,13 @@ Rails.application.routes.draw do
   resources :users do
     collection { post :import }
   end
+
+  #This should work for editing password, but I'm not entirely sure
+  #Going to test this out
+  resources :user
+  get '/users/:id/edit_password', {to: 'users#edit_password', as: :edit_user_password}
+  patch '/users/:id', {to: 'users#update'}
+  
+  # For Program
+  resources :programs
 end
