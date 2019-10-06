@@ -15,7 +15,7 @@
 
 
   
-  <%= form_for @current_edit_user do |f|%>
+  <%= form_for @user do |f|%>
 
     <div class="form-edit">
       
@@ -53,7 +53,7 @@
         <%= f.text_field :status, class:"grid-field" %>      
         <p class="grid-from-edit"> active: true, inactive: false</p>
 
-        <%= f.submit 'Update Info', class:'grid-button btn' %>
+        <%= f.submit 'Update Info', method: :post, class:'grid-button btn' %>
 
     </div>
 
