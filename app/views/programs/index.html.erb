@@ -1,0 +1,7 @@
+<h3>All Programs</h3>
+
+<% @programs.each do |program| %>
+  <div>
+      <h2><%= link_to program.name, program_path(program) %></h2>
+  </div>
+<% end %>

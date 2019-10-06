@@ -1,11 +1,9 @@
 # Administration Group Project
 > This project was designed to allow for admin/instructors to mark students for attendance, grades, and add assignments.
 It also allows for students to see their grades, attendance, and courses/programs they are enrolled in.
-aaa
+
 ## Table of contents
 * [Team](#team)
-
-##* [Team](#team)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
@@ -17,7 +15,6 @@ aaa
 * Mao Li
 * Tamara
 * Daseul
-* Andrew
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
@@ -25,7 +22,6 @@ aaa
 ## Technologies
 * Ruby on Rails
 * HTML/CSS
-* Semantic-UI
 * JavaScript
 * Possible JS frameworks?
 
@@ -40,6 +36,12 @@ rails db:reset
 rails s
 ```
 This will clone the integration branch onto your computer.
+
+To execute the rake task to import users from a CSV:
+```
+bundle exec rake import_users_csv:import_users_csv
+```
+Make sure that the csv is in the root folder of your application.
 
 ## Features
 List of features ready and TODOs for future development
@@ -56,6 +58,7 @@ To-do list:
 * Git Master/Team Lead
 * ERD
 * Users - Models/Views/Controllers 
+* CSV
 * Testing
 * Deploy to Heroku
 
@@ -76,10 +79,6 @@ To-do list:
 
 **Daseul**
 * ERD
-* Courses - Models/Views/Controllers
+* Courses - Models/Views/Controllers  
+* Programs - Models/Views/Controllers
 * Testing
-
-**Andrew**
-* README Final
-* Views
-* CSS

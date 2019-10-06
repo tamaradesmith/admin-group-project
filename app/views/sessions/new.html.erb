@@ -1,14 +1,12 @@
-<h1>Login</h1>
-
+<h4>Login</h4>
 <%= form_with url: sessions_path, local: true do |f| %>
-    <div>
-        <%= f.label :email %>
-        <%= f.email_field :email%>
-    </div>
-    <div>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-    </div>
+<div class="form">
+        <%= f.label :email, class:'grid-label' %>
+        <%= f.email_field :email, class:"grid-field" %>
+    
+        <%= f.label :password, class:'grid-label' %>
+        <%= f.password_field :password, class:'grid-field' %>
 
-    <%= f.submit "Login", class: "btn btn-primary" %>
+    <%= f.submit "Login", class:"grid-button btn" %>
+</div>
 <% end %>

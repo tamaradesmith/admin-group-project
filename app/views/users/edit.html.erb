@@ -1,0 +1,63 @@
+<h4>Edit User Information </h4>
+
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg|%>
+    <li><%=msg%></li>
+    <% end %>
+  </ul>
+<%end%>
+
+
+
+<% if can? :manage, :all%>
+
+
+  
+  <%= form_for @user do |f|%>
+
+    <div class="form-edit">
+      
+  
+
+      <!-- Basic User info -->
+        <%= f.label :first_name, class:"grid-label" %>
+        <%= f.text_field :first_name, class:"grid-field" %>
+
+        <%= f.label :last_name, class:"grid-label" %>
+        <%= f.text_field :last_name, class:"grid-field" %>      
+
+        <%= f.label :email, class:"grid-label" %>
+        <%= f.text_field :email, class:"grid-field" %>   
+
+        <%= f.label :phone_number, class:"grid-label" %>
+        <%= f.text_field :phone_number, class:"grid-field" %>      
+        <%= f.label :address, class:"grid-label" %>
+        <%= f.text_field :address, class:"grid-field" %>      
+
+      <!-- What photo is displayed as profile picture -->
+
+        <%= f.label :picture_url, class:"grid-label" %>
+        <%= f.text_field :picture_url, class:"grid-field" %>      
+        <%= f.label :role_id, class:"grid-label" %>
+        <%= f.text_field :role_id, class:"grid-field" %>   
+        <p class="grid-from-edit"> 
+        <% @roles.each do |role| %>
+        <%= role.id %>:  <%= role.role %>
+        <% end %>
+        </p>   
+
+      <!-- Edit whether user is a part of CodeCore -->
+        <%= f.label :status, class:"grid-label" %>
+        <%= f.text_field :status, class:"grid-field" %>      
+        <p class="grid-from-edit"> active: true, inactive: false</p>
+
+        <%= f.submit 'Update Info', method: :post, class:'grid-button btn' %>
+
+    </div>
+
+  <%end%>
+
+
+<%end%>
