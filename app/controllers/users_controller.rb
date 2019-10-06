@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @course = @user.courses.find_by(user: @user.id)
+   
   end
 #This will allow for users to be imported and then afterwards redirects
   def import
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     redirect_to(root_url, notice: "Imported User file.")
   end
 
-  def list
+  def index
     @users = User.all
   end
 
@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
+
   def find_user
     @user = User.find(params[:id])
   end
