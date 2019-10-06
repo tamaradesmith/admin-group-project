@@ -119,10 +119,12 @@ h4 {
 }
 .grid-field {
   grid-column: 2/4;
+  font-size: .8em;
 }
 .grid-button {
   grid-column: 3/4;
 }
+
 .grid-row-label {
   grid-row: 5/7;
 }
@@ -131,6 +133,24 @@ h4 {
 }
 .grid-row-button {
   grid-row: 7/8;
+}
+.form-edit {
+  /* border: 1px solid #cb0d0f; */
+  display: grid;
+  grid-template-columns: 150px 125px 150px auto;
+  grid-gap: 10px;
+  /* width: 600px; */
+}
+
+.grid-form-edit{
+  grid-column: 4/5;
+}
+.form-password {
+  /* border: 1px solid #cb0d0f; */
+  display: grid;
+  grid-template-columns: 250px 100px 150px;
+  grid-gap: 10px;
+  width: 600px;
 }
 .btn {
   font-family: "Bitter", serif;
