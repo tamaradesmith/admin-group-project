@@ -43,12 +43,15 @@ class Ability
     #Not quite sure how to write permissions for students, I believe this is the right way
     alias_action :read to: :view
 
+
     can :view, Mark do |mark|
       mark.user == user
     end
+
     can :view, Attendance do |attendance|
       attendance.user == user
     end
+
 
   end
 end
