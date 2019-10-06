@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def import
     User.import(params[:file])
     #After import, redirect and say if it worked or not.
-    redirect_to(root_url, notice: "Imported User file.")
+    redirect_to(root_path, notice: "Imported User file.")
   end
 
   def list
