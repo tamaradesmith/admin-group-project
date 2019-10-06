@@ -1,0 +1,22 @@
+<h4>User Information Page</h4>
+<div class="divSpace">
+
+<div class="user-div">
+
+<%= image_tag "#{@user.picture_url}", class:"grid-image user-pic" %>
+
+<p> First name: </p>
+<p> <%= @user.first_name %> </p>
+
+<p> Last name: </p>
+<p> <%= @user.last_name %> </p>
+
+<p> Role: </p>
+<p> <%= @user.role.role %> </p>
+
+<p> Course: </p>
+  <% @user.courses.each do |course|  %>
+<p class="grid-course"> <%= course.title %> </p> 
+<% end %>
+
+</div>

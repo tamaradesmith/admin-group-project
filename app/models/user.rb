@@ -6,7 +6,11 @@ class User < ApplicationRecord
   has_many :attendances
   has_many :marks
 
-  has_many :courses, dependent: :nullify
+
+  has_many :enrollments, dependent: :nullify
+
+  has_many :courses, through: :enrollments, source: :course, dependent: :nullify
+
   has_many :assignments, dependent: :nullify
   has_many :course_assignments, through: :marks, source: :assignments
 
