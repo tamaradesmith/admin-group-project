@@ -29,8 +29,7 @@
  <%= link_to "Home", root_path, class:"nav-item"  %>
         <%= link_to "Course", courses_path, class:"nav-item"  %>
  
-       <div class="nav-item">  Assignment </div>
-        <%#= link_to "Assigment", assignment_path, class:"nav-item"  %>     
+        <%= link_to "Assigment", assignments_path, class:"nav-item"  %>     
 
       <div class="nav-item">  Marks </div>
         <%#= link_to "Marks", marks_path, class:"nav-item"  %>
@@ -51,8 +50,8 @@
 <% end %>
 
     <div class="nav-general">
-      <div class="nav-item"> Programs </div>
-        <%#= link_to "Programs", program_path, class:"nav-item"  %>
+    
+         <%= link_to "Programs", programs_path, class:"nav-item"  %>
              <div class="nav-item"> Contract </div>
         <%#= link_to "Contract", contract_path, class:"nav-item"  %>
     </div>
@@ -62,9 +61,10 @@
   <div class='content'>
   <% if can? :manage, :all%>
   <div class="admin-nav">
-    <div class="nav-item">Programs</div>
+    <%= link_to "Programs", programs_path, class:"nav-item"  %>
     <%= link_to "Course", courses_path, class:"nav-item"  %>
-      <%= link_to "Users", users_path, class:"nav-item"  %>
+    <%= link_to "Users", users_path, class:"nav-item"  %>
+    <%= link_to "Assigment", assignments_path, class:"nav-item"  %>   
 
   </div>
 
