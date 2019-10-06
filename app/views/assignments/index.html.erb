@@ -1,0 +1,13 @@
+<h3>All Assignments</h3>
+<%= link_to 'Add New Assignment', new_assignment_path%>
+<ul>
+<% @assignments.each do |assignment| %>
+<li>
+  <div class="card-header"><%= link_to assignment.name, assignment_path(assignment) %></div>
+  <div class="card-body">
+    
+    <p class="card-text"><%= assignment.description %></p>
+  </div>
+</li>
+<% end %>
+</ul>
