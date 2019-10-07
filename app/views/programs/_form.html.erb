@@ -1,0 +1,15 @@
+<% if @program.errors.any? %>
+  <ul>
+      <% @program.errors.full_messages.each do |msg|%>
+      <li><%= msg%></li>
+      <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @program do |f| %>
+  <div class="form">
+      <%= f.label :name, class:"grid-label" %>
+      <%= f.text_field :name, class:"grid-field"%>
+  <%= f.submit :submit, class:"grid-button btn" %>
+  </div>
+<% end %> 

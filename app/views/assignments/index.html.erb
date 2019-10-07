@@ -1,0 +1,31 @@
+<%= link_to 'Click to create new assignment', new_assignment_path, class:"course-link"%>
+
+
+<div class="divSpace"></div>
+<h4>All Assignments</h4>
+<table class="user-table">
+<tbody >
+<tr>
+<th> Name </th>
+<th> Description </th>
+		<% if can? :manage, :all%>
+		<th> Edit </th>
+		<% end %>
+</tr>
+
+<% @assignments.each do |assignment| %>
+<tr>
+  <td> <%= link_to assignment.name, assignment_path(assignment), class:"user-link" %></td>
+  <td >
+    
+    <%= assignment.description %>
+  </td>
+  	 <td>
+				<% if can? :manage, :all%>
+				<%= link_to "Edit Info", edit_assignment_path(assignment.id), class:"user-link" %>
+				<% end %>
+				</td>
+</tr>
+<% end %>
+</tbody>
+</table>

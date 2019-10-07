@@ -1,0 +1,11 @@
+<h4>Course Page</h4>
+
+
+  <div class="grid-program">
+    <p>Program: </p>
+     
+    <p class="grid-program-item"> <%= @program.name %></p>
+
+    <%= link_to "Edit", edit_program_path(@program), class:"grid-program-button btn program-link"%>
+    <%= link_to "Delete", program_path(@program), class:"grid-button btn program-link", method: :delete,  data:{confirm: "Are you sure?"}%>
+  </div>

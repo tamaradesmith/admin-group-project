@@ -1,0 +1,64 @@
+<h4> <%= @course.title %> </h4>
+<div class="divSpace-small"> </div>
+  <div class="grid-course-show">
+
+    <%=image_tag "#{@course.picture_url}", class:" user-pic"%>
+    <p class="grid-user-label"> Class: </p>
+    <p class="grid-colum-4">   <%= @course.title %></p>
+
+
+    <p  class="grid-user-label">Program: </p>
+    <p> <%= @program %></p>
+    <p  class="grid-user-label"> Session: </p>
+    <p class="grid-colum-4"> <%= (@course.session) %></p>
+    <p  class="grid-user-label"> End Date:</p> 
+    <p class="grid-colum-4"> <%= (@course.end).to_formatted_s(:long) %> </p>
+    <p  class="grid-user-label">Status:  </p>
+    <p> <%= @status %></p>
+    <p class="grid-user-label"> Slack Group: </p>
+    <p class="grid-colum-4"> <%= @course.slack_group %></p>
+   
+  	<% if can? :manage, :all%>
+
+    <%= link_to "Add Assignment", course_assignments_path(@course), class:"course-button btn" %>
+
+    <%= link_to "Add/Remove Student", enrollments_path(@course), class:"course-button btn" %>
+
+    <%= link_to "Edit", edit_course_path(@course), class:"course-button btn" %>
+
+
+    <%= link_to "Delete", course_path(@course), method: :delete, class:"course-button btn", data:{confirm: "Are you sure?"}%>
+        <%= link_to "Course Attendances", course_attendances_path(@course), class:"course-button btn" %>
+		<% end %>
+    <% if !((can? :manage, :all) || (can? :manage, :marks))%>
+        <%= link_to "My Marks", "/users/#{current_user.id}/courses/#{@course.id}/marks", class:"course-button btn" %>
+    <% end %>
+  </div>
+
+  
+<% if @enrolled_students != nil %>
+  <h4>Enrolled Students</h4>
+    <table class="user-table">
+      <tbody >
+        <tr>
+          <th> Frist Name </th>
+          <th> Last Name </th>
+          <th> Email </th>
+          <th> Mark Assignment </th>
+        </tr>
+          <% @enrolled_students.each do |enrolled_student| %>
+        <tr>
+          <td> <%= enrolled_student.first_name%> </td>
+          <td> <%= enrolled_student.last_name%> </td>
+          <td> <%= enrolled_student.email%> </td>
+          <td><%= link_to "Mark Assignment", marks_path(@course, enrolled_student), class:"course-button btn" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
+
+<div class="divSpace"></div>
+

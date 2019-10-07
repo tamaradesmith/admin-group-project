@@ -1,0 +1,39 @@
+<% if @course.errors.any? %>
+<ul>
+    <% @course.errors.full_messages.each do |msg|%>
+    <li><%= msg%></li>
+    <% end %>
+</ul>
+
+
+<% end %>
+<%= form_for @course do |f| %>
+<div class="form">
+
+    <%= f.label :title, class:"grid-label" %>
+    <%= f.text_field :title, class:"grid-field" %>
+
+    <%= f.label :session, class:"grid-label"  %>
+    <%= f.text_field :session, class:"grid-field" %>
+
+    <%= f.label :slack_group, class:"grid-label"  %>
+    <%= f.text_field :slack_group, class:"grid-field" %>
+
+    <%= f.label :start, class:"grid-label"  %>
+    <%= f.date_field :start, class:"grid-field" %>
+
+    <%= f.label :end, class:"grid-label"  %>
+    <%= f.date_field :end, class:"grid-field" %>
+
+    <%= f.label :picture_url, class:"grid-label"  %>
+    <%= f.text_field :picture_url, class:"grid-field" %>
+
+    <%= f.label :program_id, class:"grid-label"  %>
+    <%= f.collection_select :program_id, @programs, :id, :name, {}, class:"grid-dropdown" %>
+
+    <%= f.label :status_id, class:"grid-label"  %>
+    <%= f.collection_select :status_id, @statuses, :id, :status, {}, class:"grid-dropdown" %>
+
+    <%= f.submit :submit, class:'grid-button btn' %>
+</div>
+<% end %>

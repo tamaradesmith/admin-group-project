@@ -1,0 +1,59 @@
+<h4>Add assignment to <%= @course.title%></h4>
+
+
+
+<table class="user-table">
+  <tbody>
+    <tr>
+      <th>Assignment</th>
+      <th>Dute Date</th>
+      <th>Marker</th>
+      <th>Add/Edit</th>
+      <th>Delete</th>
+     
+    </tr>
+
+
+
+<% @assignments.each do |assignment| %>
+<tr>
+    <td><%= assignment.name %></td>
+   <%if (assignment.course_id ) %>
+        <td> 
+            <%= form_with url: "/courses/#{assignment.course_id }/assignments/#{assignment.id}/course_assignments/#{assignment.relation_ship_id}", local: true, method: 'PATCH' do |f|%>
+            <%= f.date_field :due_date, value:assignment.due_date.to_date, class:"date"%>
+        </td>
+        <td>
+            <%= f.collection_select :user_id, @markers, :id, :full_name, :selected => assignment.user_id, class:"list" %>
+        </td> 
+        <td>
+            <%= f.submit "Edit", class:"btn" %>
+        </td>
+            <% end%>
+        <td>
+            <%= form_with url: "/course_assignments/#{assignment.relation_ship_id}", local: true, method: 'DELETE' do |f|%>
+                <%= f.submit "Delete", class:"btn" %>
+            <% end%>
+        </td>
+    <% else %>
+            <%= form_with url: "/courses/#{@course.id }/assignments/#{assignment.id}/course_assignments", local: true do |f|%>
+            <td>
+                <%= f.date_field :due_date, class:"date" %>
+            </td>
+            <td>
+                <%= f.hidden_field :assignment_id, value: assignment.id%>
+                <%= f.collection_select :user_id, @markers, :id, :full_name %>
+            </td>
+            <td>
+            <%= f.submit "Add", class:"btn" %>
+            </td>
+            <td></td>
+            <% end%>
+
+    <%end%>
+
+</tr>
+<% end %>
+<div class="divSpace">
+<%= will_paginate @assignments %>
+</div>
