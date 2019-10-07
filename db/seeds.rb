@@ -129,11 +129,25 @@ USERS.each do |user|
   ) 
 end
 
-# byebug
+Courses = Course.all
+ASSIGMENTS = 12
 
+ASSIGMENTS.times do |course|
+  CourseAssignment.create(
+    due_date: Faker::Date.forward(days: 90),
+     course_id: rand(1..4),
+     assignment_id: rand(1..15),
+     user_id: rand(2..10)
+  )
+end
+
+# byebug
+admin = User.first
 
   user = User.all
   course = Course.all
 
   puts "Seeding created #{user.count} Users"
   puts "Seeding created #{course.count} Courses"
+
+  puts "admin_user email: #{admin.email}, password: #{PASSWORD}"
