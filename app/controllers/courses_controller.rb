@@ -27,6 +27,7 @@ class CoursesController < ApplicationController
     @program = @course.program.name
     @status = @course.status.status
     @students = User.order(first_name: :asc).where('role_id = 1')
+    @enrolled_students = @course.students
   end
 
   def edit
@@ -47,7 +48,7 @@ class CoursesController < ApplicationController
     @course.destroy
     redirect_to courses_path
   end
-
+  
   private
 
   def course_params

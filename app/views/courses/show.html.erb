@@ -25,6 +25,21 @@
     </div>
   </div>
 
+  
+  <div>
+    <h3>Enrolled Students</h3>
+    <ul class="enrolled-students-list">
+    <% if @enrolled_students != nil %>
+      <% @enrolled_students.each do |enrolled_student| %>
+        <li>
+          <p>
+            <%= enrolled_student.first_name%>
+          </p>
+        </li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
 
 <!-- marks_path(@course, @user) -->
 <!-- /courses/:course_id/users/:user_id/marks -->
