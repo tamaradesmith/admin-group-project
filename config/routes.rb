@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # Path for Enrollments
   post '/courses/:course_id/enrollments', {to: "enrollments#create"}
   patch '/courses/:course_id/users/:user_id/enrollments/:id', {to: "enrollments#update"}
-  delete 'enrollments/:id', {to: "enrollments#destroy"}
+  delete '/courses/:course_id/enrollments/:student_id', {to: "enrollments#destroy", as: :enrollment}
   get '/courses/:course_id/enrollments', {to: "enrollments#index", as: :enrollments}
   
   root 'welcome#home'

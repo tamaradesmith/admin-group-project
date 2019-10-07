@@ -15,6 +15,7 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>email</th>
+          <th>Delete</th>
         </tr>
   
         <% @enrolled_students.each do |enrolled_student| %>
@@ -23,6 +24,9 @@
           <td><%= enrolled_student.first_name %></td>
           <td><%= enrolled_student.last_name %></td>
           <td><%= enrolled_student.email %></td>
+          <td>
+            <%= button_to("Delete", enrollment_path(@course.id, enrolled_student.id), method: :delete) %>
+          </td>
         </tr>
         <%number = number + 1%>
         <% end %>
