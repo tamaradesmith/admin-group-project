@@ -25,7 +25,7 @@
           <td><%= enrolled_student.last_name %></td>
           <td><%= enrolled_student.email %></td>
           <td>
-            <%= button_to("Delete", enrollment_path(@course.id, enrolled_student.id), method: :delete) %>
+            <%= button_to("Delete", enrollment_path(@course.id, enrolled_student.id), method: :delete, class:"delete-button") %>
           </td>
         </tr>
         <%number = number + 1%>
