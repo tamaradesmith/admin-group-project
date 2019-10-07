@@ -1,7 +1,11 @@
 class CoursesController < ApplicationController
   before_action :find_course, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index]
 
 def index
+
+
+
     if params[:filter]
 
       if params[:filter].include?('program ')
@@ -18,6 +22,7 @@ def index
     end
         # @status = Status.all
 end
+
 
   def new
     @course = Course.new

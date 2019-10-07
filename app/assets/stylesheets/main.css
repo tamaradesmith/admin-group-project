@@ -366,3 +366,9 @@ h5 {
   border: none;
   font-family: inherit;
 }
+.delete-button{
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 1em;
+}
