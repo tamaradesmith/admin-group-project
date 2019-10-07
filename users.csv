@@ -1,0 +1,6 @@
+status,first_name,last_name,email,phone_number,address,picture_url,role_id,password_digest
+TRUE,Logan,Kane,logan.kan2e@example.com,555-555-5555,You think I WOULD GIVE THIS OUT,Yup.png,3,fhewquiofhqwfiuqwh
+TRUE,Tamara,Smith,tsm2ith@google.com,400-000-2000,No,cat.jpg,3,iuewfbnoqiwufboeiuqwbf
+TRUE,Police,Officer,co2p@gonnaget.ya,911,Police station,cat.jpg,3,hudson
+TRUE,John,Gootee,2,111-111-1111,the train station,cat.jpg,3,hudson
+TRUE,Hindreen,Sulaiman,2moew@example.com,111-222-3333,the street,cat.jpg,2,hudson
