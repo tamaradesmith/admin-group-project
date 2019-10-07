@@ -17,7 +17,8 @@ It also allows for students to see their grades, attendance, and courses/program
 * Daseul
 
 ## Screenshots
-![Example screenshot](url =250px)
+<img width="500" alt="screen1" src="https://user-images.githubusercontent.com/10205799/66338771-a3d8bd00-e8f6-11e9-9d19-a386541a6f9f.png">
+<img width="500" alt="screen2" src="https://user-images.githubusercontent.com/10205799/66338773-a3d8bd00-e8f6-11e9-95b0-b0f5bcc6bc90.png">
 
 ## Technologies
 * Ruby on Rails
@@ -58,7 +59,7 @@ Make sure that the csv is in the root folder of your application.
 * Git Master/Team Lead
 * ERD
 * Users/Sessions - Models/Views/Controllers 
-* Assign user abilities
+* Assign user abilities/show pages
 * Filters for users/courses/programs
 * CSV Import from command line
 * Deploy to Heroku
@@ -67,9 +68,9 @@ Make sure that the csv is in the root folder of your application.
 **Tamara**
 * ERD
 * Explanations for group
-* Seeds
+* Seeds & reworking
 * Testing
-* Views - Reworking
+* Views - Originals + Reworking
 * CSS - All
 * Github/Trello/Slack
 
@@ -80,7 +81,7 @@ Make sure that the csv is in the root folder of your application.
 * Assignments - Models/Views/Controllers
 * Instructors - Models/Views/Controllers
 * Seeds - Reworked
-* Testing
+* Course - Add marks/assignments
 * Github/Trello/Slack
 
 **Daseul**
@@ -89,5 +90,5 @@ Make sure that the csv is in the root folder of your application.
 * Archiving and listing of courses
 * Adding users to courses 
 * Programs - Models/Views/Controllers
-* Testing
+* Show pages
 * Github/Trello/Slack	
