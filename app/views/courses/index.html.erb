@@ -1,23 +1,75 @@
-<%= link_to "Click to create new course", new_course_path, class:'course-link'%>
-<div class="divSpace"> </div>
+<%= button_to "Click to create new course", new_course_path, class:'course-link link-button', method: :get%>
+<div class="divSpace"></div>
+
+
+
+
+<p> Filter Courses by Program or By Status </p>
+
+<div class="divSpace-small"></div>
+
+<div>
+	<%= form_with model: @course, local: true, method: :get do |f| %>
+<div class="grid-course-filter">
+	<div>
+		<h4>Status:</h4>
+			<div class="inner-grid">
+				<%= f.label 'Ongoing', class:"grid-label" %> 
+				<%= f.radio_button :filter, "status 1"%> 
+
+				<%= f.label 'Completed', class:"grid-label" %> 
+				<%= f.radio_button :filter, 'status 2' %> 
+
+					<%= f.label 'Setup', class:"grid-label" %> 
+				<%= f.radio_button :filter, 'status 3' %> 
+
+					<%= f.label 'Archived', class:"grid-label" %> 
+				<%= f.radio_button :filter, 'status 4' %>
+			</div>
+	</div>
+
+<div class="filter-column">
+
+		<h4>Program:</h4>
+			<div class="inner-grid">
+		<%= f.label 'Bootcamp', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'program 1' %> 
+
+		<%= f.label 'One Year Program', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'program 2' %> 
+
+			<%= f.label 'Business', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'program 3' %> 
+
+			<%= f.label 'Fundamentals', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'program 4' %>
+
+</div>
+</div>
+ <div class="inner-grid-1">
+			<%= f.label 'all', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'status all' %> 
+		</div>
+		<%= f.submit "Add Filter", class: "grid-button btn" %>
+	<% end %>
+</div>
+<div class="divSpace"></div>
 <h4>All Classes</h3>
 
-<div class="grid-course">
-<p class="grid-course-header"> Course Title </p>
-<p class="grid-course-header" > Session </p>
- </div>
+<table class="user-table">
+<tbody>
+	<tr>
+		<th> Course Title </th>
+		<th > Session </th>
+ </tr>
 <% @courses.each_with_index  do |course, index| %>
-  <div class="grid-course">
-  <% if index.odd? %>
-     <%= link_to course.title, course_path(course), class:"grid-background user-link grid-course-item" %>
-
-      <p class="grid-background grid-course-item"><%= course.session %></p>
-      <% else %>
-        <%= link_to course.title, course_path(course), class:"user-link grid-course-item" %>
-
-      <p class="grid-course-item"><%= course.session %></p>
-      <% end %>
-
-
-  </div>
+  <tr>
+ 		<td>
+			<%= link_to course.title, course_path(course), class:"user-link" %>
+		</td>
+		<td ><%= course.session %></td>
+	</tr>
 <% end %>
+
+</tbody>
+  </table>
