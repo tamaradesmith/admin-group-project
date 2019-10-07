@@ -24,6 +24,9 @@
 <p class="grid-user-label"> Phone: </p>
 <p class="grid-user-info"> <%= @user.phone_number %> </p>
 
+<p class="grid-user-label"> Email: </p>
+<p class="grid-user-info"> <%= @user.email %> </p>
+
 <p class="grid-user-label"> Status: </p>
 <p class="grid-user-info">
   <% if @user.status %> active 
@@ -31,10 +34,17 @@
   inactive
   <% end %>
 
-  <p class="grid-user-label"> Join Date: </p>
+<p class="grid-user-label"> Join Date: </p>
 <p class="grid-user-info"> <%= (@user.created_at).to_formatted_s(:long)  %> </p>
    </p>
 
+<% if can? :manage, :all%>
+    <%= link_to "Edit Info", edit_user_path(@user.id), class:"user-link btn-edit" %>
+  <% end %>
+
+
 </div>
+
+
 <div class="divSpace"> </div>
 <%= link_to "Click to change password", edit_user_password_path(current_user), class:"grid-password" %>

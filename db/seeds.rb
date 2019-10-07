@@ -89,7 +89,7 @@ USERS = User.all
     )
   end
 
-  PROGRAMS = ["bootcamp", "1-year Coding", "1-business", "coding fundamental"]
+  PROGRAMS = ["Bootcamp", "One Year Coding Diploma", "Business", "Coding Fundamentals"]
 
   PROGRAMS.each do |program|
     Program.create(
@@ -97,7 +97,7 @@ USERS = User.all
     )
   end
 
-  STATUS = ["ongoing", "completed", "setup", "archived"]
+  STATUS = ["Ongoing", "Completed", "Setup", "Archived"]
 
   STATUS.each do |stat|
     Status.create(
@@ -105,7 +105,7 @@ USERS = User.all
     )
   end
 
-  COURSES = ["cohort33", "bussiness_2019", "coding_2019", "fundametal_May_2019"]
+  COURSES = ["Cohort 33", "Business 45", "Coding Diploma 4", "Fundamentals 22"]
 
 COURSES.each do |course|
   i = 1
@@ -116,7 +116,8 @@ COURSES.each do |course|
     end: Faker::Date.forward(days: 90),
     slack_group: "#{course}_slack",
     status_id: 1,
-    program_id: i
+    program_id: i,
+    picture_url: 'http://www.ragdollchapps.com/uploads/3/7/3/8/37386167/68517829-2441901322498919-2986375474843746304-n_orig.jpg',
     )
     i += 1
 end
@@ -134,5 +135,5 @@ end
   user = User.all
   course = Course.all
 
-  puts user.count
-  puts course.count 
+  puts "Seeding created #{user.count} Users"
+  puts "Seeding created #{course.count} Courses"

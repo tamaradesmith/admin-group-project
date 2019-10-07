@@ -5,10 +5,11 @@
       <% end %>
   </ul>
 <% end %>
+
 <%= form_for @program do |f| %>
-  <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+  <div class="form">
+      <%= f.label :name, class:"grid-label" %>
+      <%= f.text_field :name, class:"grid-field"%>
+  <%= f.submit :submit, class:"grid-button btn" %>
   </div>
-  <%= f.submit :submit %>
 <% end %> 

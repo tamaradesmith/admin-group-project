@@ -1,9 +1,23 @@
-<h3>All Classes</h3>
+<%= link_to "Click to create new course", new_course_path, class:'course-link'%>
+<div class="divSpace"> </div>
+<h4>All Classes</h3>
 
-<% @courses.each do |course| %>
-  <div>
-      <h2><%= link_to course.title, course_path(course) %></h2>
-      <p><%= course.session %></p>
-      <hr>
+<div class="grid-course">
+<p class="grid-course-header"> Course Title </p>
+<p class="grid-course-header" > Session </p>
+ </div>
+<% @courses.each_with_index  do |course, index| %>
+  <div class="grid-course">
+  <% if index.odd? %>
+     <%= link_to course.title, course_path(course), class:"grid-background user-link grid-course-item" %>
+
+      <p class="grid-background grid-course-item"><%= course.session %></p>
+      <% else %>
+        <%= link_to course.title, course_path(course), class:"user-link grid-course-item" %>
+
+      <p class="grid-course-item"><%= course.session %></p>
+      <% end %>
+
+
   </div>
 <% end %>

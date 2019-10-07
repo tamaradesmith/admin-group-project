@@ -1,0 +1,37 @@
+<h3>User Details</h3>
+<%
+=begin%>
+ This is the page which instructor can CRUD student's mark 
+<%
+=end%>
+<div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title"><%= @user.full_name%> in the course <%= @course.title%></h5>
+    </div>
+</div>
+<br>
+<h4>Marks Details</h4>
+<% @marks.each do |mark| %>
+<div style="display:flex;justify-content:space-around">
+    <span><%= mark.assignment_name %></span>
+    <%if (mark.id ) %>
+            <%= form_with url: "/course_assignments/#{mark.relation_ship_id}/users/#{mark.student_id}/marks/#{mark.id}", local: true, method: 'PATCH' do |f|%>
+                <%= f.hidden_field :course_id, value: mark.course_id%>
+                <%= f.text_field :grade, value: mark.grade%>
+                <%= f.submit "Edit" %>
+            <% end%>
+            <%= form_with url: "/marks/#{mark.id}", local: true, method: 'DELETE' do |f|%>
+                <%= f.submit "Delete" %>
+            <% end%>
+    <% else %>
+            <%= form_with url: "/course_assignments/#{mark.relation_ship_id}/users/#{@user.id}/marks", local: true do |f|%>
+                <%= f.hidden_field :course_id, value: mark.course_id%>
+                <%= f.text_field :grade%>
+                <%= f.submit "Add" %>
+            <% end%>
+    <%end%>
+
+</div>
+<% end %>
+
+<%= will_paginate @marks %>
