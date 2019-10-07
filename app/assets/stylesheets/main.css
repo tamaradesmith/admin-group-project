@@ -208,6 +208,11 @@ h5 {
   grid-template-columns: 162px auto;
   grid-gap: 10px;
 }
+.attendance-grid {
+  display: grid;
+  grid-template-columns:300px 300px auto auto;
+  grid-gap: 10px;
+}
 .grid-mark {
   display: grid;
   grid-template-columns: 150px 250px 250px;
@@ -367,6 +372,12 @@ h5 {
   font-family: inherit;
 }
 .delete-button{
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 1em;
+}
+.attendance-button{
   background: transparent;
   border: none;
   font-family: inherit;
