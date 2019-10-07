@@ -60,7 +60,7 @@
           <td><%= assigned_instructor.last_name %></td>
           <td><%= assigned_instructor.email %></td>
           <td>
-            <%= button_to("Delete", enrollment_path(@course.id, assigned_instructor.id), method: :delete) %>
+            <%= button_to("Delete", enrollment_path(@course.id, assigned_instructor.id), method: :delete,  class:"delete-button") %>
           </td>
         </tr>
         <%number = number + 1%>
@@ -109,9 +109,8 @@
       <% end %>
     <% end %>
   
+<div class="divSpace"></div>
 
-<%# List of All Instructors %>
-<div>
   <p>List of All Instructors</p>
 
 

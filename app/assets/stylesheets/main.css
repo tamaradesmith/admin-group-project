@@ -69,6 +69,7 @@ h5 {
 .nav-item {
   padding: 0.5em;
   text-decoration: none;
+  color: ghostwhite;
 }
 .nav-item:visited {
   color: ghostwhite;

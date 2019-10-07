@@ -28,7 +28,7 @@
 
 
     <%= link_to "Delete", course_path(@course), method: :delete, class:"course-button btn", data:{confirm: "Are you sure?"}%>
-        <%= link_to "Course Attendances", course_attendances_path(@course) %>
+        <%= link_to "Course Attendances", course_attendances_path(@course), class:"course-button btn" %>
 		<% end %>
 
     <%= link_to "Your Marks", marks_path(@course, current_user), class:"course-button btn grid-assigment-button" %>
