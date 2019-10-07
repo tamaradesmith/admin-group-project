@@ -50,7 +50,6 @@ h5 {
   flex-direction: column;
   color: ghostwhite;
   background: #cb0d0f;
-  
   min-height: 100vh;
   padding: 0.5em 0.5em;
   justify-content: space-between;
@@ -78,6 +77,13 @@ h5 {
 .nav-item:hover {
   border-left: 5px solid ghostwhite;
   padding-left: 0.1em;
+}
+.nav-button {
+  border: none;
+  background: transparent;
+  font-size: 0.9em;
+  color: ghostwhite;
+  font-weight: 300;
 }
 .admin-nav {
   display: flex;
@@ -155,8 +161,8 @@ h5 {
   grid-gap: 10px;
   width: 600px;
 }
-.grid-course-item{
-  padding: .25em;
+.grid-course-item {
+  padding: 0.25em;
 }
 .grid-course-header {
   padding: 0.25em;
@@ -184,6 +190,24 @@ h5 {
   grid-gap: 10px;
   width: 600px;
 }
+.grid-course-filter {
+  display: grid;
+  grid-template-columns: 250px 25px 250px;
+  grid-gap: 10px;
+}
+.filter-column {
+  grid-column: 3/4;
+}
+.inner-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+.inner-grid-1 {
+  display: grid;
+  grid-template-columns: 162px auto;
+  grid-gap: 10px;
+}
 .grid-mark {
   display: grid;
   grid-template-columns: 150px 250px 250px;
@@ -200,7 +224,7 @@ h5 {
   grid-template-columns: 150px 125px 150px auto;
   grid-gap: 10px;
 }
-.grid-colum-4{
+.grid-colum-4 {
   grid-column: 4/7;
 }
 
@@ -254,7 +278,7 @@ h5 {
 }
 .grid-course-show {
   display: grid;
-  grid-template-columns: 150px 150px 150px  200px  200px auto;
+  grid-template-columns: 150px 150px 150px 200px 200px 200px;
   grid-gap: 15px;
 }
 .user-pic {
@@ -283,12 +307,12 @@ h5 {
   color: #880608;
 }
 
-.table-checkbox{
+.table-checkbox {
   margin: 0 auto;
 }
 
 .user-table {
-  width: 90%;
+  width: 99%;
 }
 .user-table th,
 .user-table td {
@@ -303,7 +327,7 @@ h5 {
 .user-table th {
   font-size: 1.2em;
   font-weight: 500;
-  background:#cb0d0f;
+  background: #cb0d0f;
   color: ghostwhite;
 }
 .user-link {
@@ -321,19 +345,24 @@ h5 {
   color: black;
   font-size: 1em;
 }
-.date{
+.date {
   border: none;
   background: transparent;
-  font-size: .8em;
+  font-size: 0.8em;
 }
-.list{
-   border: none;
+.list {
+  border: none;
   background: transparent;
-  font-size: .8em;
+  font-size: 0.8em;
 }
-.header{
+.header {
   font-size: 1.2em;
   font-weight: 500;
-  background:#cb0d0f;
+  background: #cb0d0f;
   color: ghostwhite;
+}
+.link-button {
+  background: transparent;
+  border: none;
+  font-family: inherit;
 }
