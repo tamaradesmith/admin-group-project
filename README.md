@@ -59,7 +59,7 @@ Make sure that the csv is in the root folder of your application.
 * Git Master/Team Lead
 * ERD
 * Users/Sessions - Models/Views/Controllers 
-* Assign user abilities
+* Assign user abilities/show pages
 * Filters for users/courses/programs
 * CSV Import from command line
 * Deploy to Heroku
@@ -68,9 +68,9 @@ Make sure that the csv is in the root folder of your application.
 **Tamara**
 * ERD
 * Explanations for group
-* Seeds
+* Seeds & reworking
 * Testing
-* Views - Reworking
+* Views - Originals + Reworking
 * CSS - All
 * Github/Trello/Slack
 
@@ -81,7 +81,7 @@ Make sure that the csv is in the root folder of your application.
 * Assignments - Models/Views/Controllers
 * Instructors - Models/Views/Controllers
 * Seeds - Reworked
-* Testing
+* Course - Add marks/assignments
 * Github/Trello/Slack
 
 **Daseul**
@@ -90,5 +90,5 @@ Make sure that the csv is in the root folder of your application.
 * Archiving and listing of courses
 * Adding users to courses 
 * Programs - Models/Views/Controllers
-* Testing
+* Show pages
 * Github/Trello/Slack	
