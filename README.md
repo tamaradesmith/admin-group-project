@@ -24,7 +24,9 @@ It also allows for students to see their grades, attendance, and courses/program
 * HTML/CSS
 * JavaScript
 * Heroku
-* Possible JS frameworks?
+* ECharts
+* PostreSQL
+* Slack/Trello/Github
 
 ## Setup
 Please note, you have to rails db:reset the DB, not rails db:seed everytime you are starting over. We have hard-coded user roles and don't want them to auto-increment (and break).
@@ -48,12 +50,8 @@ Make sure that the csv is in the root folder of your application.
 
 ## Features
 * Administrators can manage all aspects of users/courses/assignments/programs
-* Instructors can manage courses/assignments/attendance (in development)
-* Students can view their marks/assignments/attendance (in development)
-
-To-do list:
-* Complete attendance
-* Complete marks
+* Instructors can manage courses/assignments/attendance
+* Students can view their marks/assignments/attendance
 
 ## Roles
 **Logan**
@@ -78,6 +76,7 @@ To-do list:
 **Mao**
 * ERD
 * Migrations - ALL
+* Marks
 * Assignments - Models/Views/Controllers
 * Instructors - Models/Views/Controllers
 * Seeds - Reworked
