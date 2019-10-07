@@ -30,8 +30,9 @@
     <%= link_to "Delete", course_path(@course), method: :delete, class:"course-button btn", data:{confirm: "Are you sure?"}%>
         <%= link_to "Course Attendances", course_attendances_path(@course), class:"course-button btn" %>
 		<% end %>
-
-    <%= link_to "Your Marks", marks_path(@course, current_user), class:"course-button btn grid-assigment-button" %>
+    <% if !((can? :manage, :all) || (can? :manage, :marks))%>
+        <%= link_to "My Marks", "/users/#{current_user.id}/courses/#{@course.id}/marks", class:"course-button btn" %>
+    <% end %>
   </div>
 
   
@@ -43,12 +44,14 @@
           <th> Frist Name </th>
           <th> Last Name </th>
           <th> Email </th>
+          <th> Mark Assignment </th>
         </tr>
           <% @enrolled_students.each do |enrolled_student| %>
         <tr>
           <td> <%= enrolled_student.first_name%> </td>
           <td> <%= enrolled_student.last_name%> </td>
           <td> <%= enrolled_student.email%> </td>
+          <td><%= link_to "Mark Assignment", marks_path(@course, enrolled_student), class:"course-button btn" %></td>
         </tr>
       <% end %>
     </tbody>

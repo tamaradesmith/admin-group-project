@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_tag "application" %>
+    <%= javascript_include_tag "application" %>
     <%= yield(:head) %>
   </head>
 
@@ -32,9 +32,11 @@
       <%= link_to "Assigment", assignments_path, class:"nav-item"  %>     
 
   
-      <%= link_to "Marks",  marks_path(current_user.courses.ids, current_user), class:"nav-item"  %>
+      <%#= link_to "Marks",  marks_path(current_user.courses.ids, current_user), class:"nav-item"  %>
 
-    <%#div class="nav-item">  Attendance </div>
+
+      <%#=div class="nav-item">  Attendance </div%>
+                         
         <%#= link_to "Attendance", attendance_path, class:"nav-item"  %>
      
   
