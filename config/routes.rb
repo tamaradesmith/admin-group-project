@@ -37,7 +37,6 @@ Rails.application.routes.draw do
   get '/courses/:course_id/enrollments', {to: "enrollments#index", as: :enrollments}
   
   post '/courses/:course_id/enrollments/instructors', {to: "enrollments#instructor"}
-  root 'welcome#home'
   
 
   resources :attendance, only: [:index, :show, :edit, :update]
