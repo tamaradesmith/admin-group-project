@@ -19,7 +19,7 @@ It also allows for students to see their grades, attendance, and courses/program
 ## Screenshots
 <img width="500" alt="screen1" src="https://user-images.githubusercontent.com/10205799/66338771-a3d8bd00-e8f6-11e9-9d19-a386541a6f9f.png">
 <img width="500" alt="screen2" src="https://user-images.githubusercontent.com/10205799/66338773-a3d8bd00-e8f6-11e9-95b0-b0f5bcc6bc90.png">
-`
+
 ## Technologies
 * Ruby on Rails
 * HTML/CSS
