@@ -155,13 +155,8 @@ h5 {
   grid-gap: 10px;
   width: 600px;
 }
-<<<<<<< HEAD
 .grid-course-item{
   padding: .25em;
-=======
-.grid-course-item {
-  padding: 0.25em;
->>>>>>> origin/development
 }
 .grid-course-header {
   padding: 0.25em;
@@ -205,15 +200,11 @@ h5 {
   grid-template-columns: 150px 125px 150px auto;
   grid-gap: 10px;
 }
-<<<<<<< HEAD
 .grid-colum-4{
   grid-column: 4/7;
 }
-.grid-form-edit{
-=======
 
 .grid-form-edit {
->>>>>>> origin/development
   grid-column: 4/5;
 }
 .form-password {
