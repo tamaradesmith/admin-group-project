@@ -115,8 +115,8 @@ COURSES.each do |course|
     start: Faker::Date.backward(days: 30),
     end: Faker::Date.forward(days: 90),
     slack_group: "#{course}_slack",
-    status_id: 1,
-    program_id: i,
+    status_id: rand(1..4),
+    program_id: rand(1..4),
     picture_url: 'http://www.ragdollchapps.com/uploads/3/7/3/8/37386167/68517829-2441901322498919-2986375474843746304-n_orig.jpg',
     )
     i += 1

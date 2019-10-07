@@ -1,4 +1,51 @@
-<%= link_to "Click to create new course", new_course_path, class:'course-link'%>
+<%= button_to "Click to create new course", new_course_path, class:'grid-button btn', method: :get%>
+<div class="divSpace"></div>
+
+
+
+
+<p> Filter Courses by Program or By Status </p>
+
+<div class="divSpace-small"></div>
+<div>
+
+	<%= form_with model: @course, local: true, method: :get do |f| %>
+		<div class="grid-filter">
+		<h5>Status</h5>
+		<%= f.label 'Ongoing', class:"grid-label" %> 
+		<%= f.radio_button :filter, "status 1"%> 
+
+		<%= f.label 'Completed', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'status 2' %> 
+
+			<%= f.label 'Setup', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'status 3' %> 
+
+			<%= f.label 'Archived', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'status 4' %>
+
+		<hr>
+		<h5>Program</h5>
+		<%= f.label 'Bootcamp', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'program 1' %> 
+
+		<%= f.label 'One Year Program', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'program 2' %> 
+
+			<%= f.label 'Business', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'program 3' %> 
+
+			<%= f.label 'Fundamentals', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'program 4' %>
+
+		<hr>
+			<%= f.label 'all', class:"grid-label" %> 
+		<%= f.radio_button :filter, 'status all' %> 
+
+		<%= f.submit "Add Filter", class: "grid-button btn" %>
+	<% end %>
+</div>
+<div class="divSpace"></div>
 <div class="divSpace"> </div>
 <h4>All Classes</h3>
 
