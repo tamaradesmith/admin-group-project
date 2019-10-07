@@ -19,8 +19,8 @@ Role.destroy_all
 Status.destroy_all
 User.destroy_all
 
-NUM_TIMES = 90
-NUM_USERS = 30
+NUM_TIMES = 20
+NUM_USERS = 150
 NUM_USERS_INSTUCTOR = 10
 NUM_ASSIGNMENTS = 15
 PASSWORD = 'corecode'
@@ -51,7 +51,7 @@ NUM_USERS_INSTUCTOR.times do
   User.create(
     first_name: first_name,
     last_name: last_name,
-    email: "#{first_name}.#{last_name}@example.com",
+    email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
     password: PASSWORD,
     role_id: 2,
     address: Faker::Address.street_address,
@@ -112,14 +112,15 @@ USERS = User.all
 
 NUM_TIMES.times do |course|
   i = 1
+  program = rand(1..4)
   Course.create(
-    title: "Course #{rand(1..300)}",
+    title: "#{PROGRAMS[program-1]} #{rand(1..300)}",
     session: Faker::Date.backward(days: 30),
     start: Faker::Date.backward(days: 30),
     end: Faker::Date.forward(days: 90),
     slack_group: "Your slack group is being made :) ",
     status_id: rand(1..4),
-    program_id: rand(1..4),
+    program_id: program,
     picture_url: 'http://www.ragdollchapps.com/uploads/3/7/3/8/37386167/68517829-2441901322498919-2986375474843746304-n_orig.jpg',
     )
     i += 1
@@ -133,16 +134,16 @@ USERS.each do |user|
 end
 
 Courses = Course.all
-ASSIGNMENTS = 12
+# ASSIGNMENTS = 12
 
-ASSIGNMENTS.times do |course|
-  CourseAssignment.create(
-    due_date: Faker::Date.forward(days: 90),
-     course_id: rand(1..4),
-     assignment_id: rand(1..15),
-     user_id: rand(2..10)
-  )
-end
+# ASSIGNMENTS.times do |course|
+#   CourseAssignment.create(
+#     due_date: Faker::Date.forward(days: 90),
+#      course_id: rand(1..4),
+#      assignment_id: rand(1..15),
+#      user_id: rand(2..10)
+#   )
+# end
 
 # byebug
   admin = User.first
