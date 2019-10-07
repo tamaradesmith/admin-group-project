@@ -19,7 +19,7 @@ Role.destroy_all
 Status.destroy_all
 User.destroy_all
 
-
+NUM_TIMES = 90
 NUM_USERS = 30
 NUM_USERS_INSTUCTOR = 10
 NUM_ASSIGNMENTS = 15
@@ -105,16 +105,19 @@ USERS = User.all
     )
   end
 
-  COURSES = ["Cohort 33", "Business 45", "Coding Diploma 4", "Fundamentals 22"]
+  # NUM_TIMES.times do
 
-COURSES.each do |course|
+  # end
+  # COURSES = ["Cohort #{rand{1..300}}", "Business 45", "Coding Diploma 4", "Fundamentals 22"]
+
+NUM_TIMES.times do |course|
   i = 1
   Course.create(
-    title: course,
+    title: "Course #{rand(1..300)}",
     session: Faker::Date.backward(days: 30),
     start: Faker::Date.backward(days: 30),
     end: Faker::Date.forward(days: 90),
-    slack_group: "#{course}_slack",
+    slack_group: "Your slack group is being made :) ",
     status_id: rand(1..4),
     program_id: rand(1..4),
     picture_url: 'http://www.ragdollchapps.com/uploads/3/7/3/8/37386167/68517829-2441901322498919-2986375474843746304-n_orig.jpg',
@@ -130,9 +133,9 @@ USERS.each do |user|
 end
 
 Courses = Course.all
-ASSIGMENTS = 12
+ASSIGNMENTS = 12
 
-ASSIGMENTS.times do |course|
+ASSIGNMENTS.times do |course|
   CourseAssignment.create(
     due_date: Faker::Date.forward(days: 90),
      course_id: rand(1..4),
@@ -142,7 +145,7 @@ ASSIGMENTS.times do |course|
 end
 
 # byebug
-admin = User.first
+  admin = User.first
 
   user = User.all
   course = Course.all
