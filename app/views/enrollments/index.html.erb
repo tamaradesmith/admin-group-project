@@ -1,0 +1,77 @@
+<h4>Course Enrollment for <%= @course.title%></h4>
+
+
+  <p>Enrolled Students</p>
+  <div class="divSpace"> </div>
+
+
+
+  <% if @enrolled_students != nil %>
+      <table class="user-table">
+      <tbody>
+      <% number = 1 %>
+        <tr>
+          <th># </th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>email</th>
+          <th>Delete</th>
+        </tr>
+  
+        <% @enrolled_students.each do |enrolled_student| %>
+        <tr>
+          <td><%= number %></td>
+          <td><%= enrolled_student.first_name %></td>
+          <td><%= enrolled_student.last_name %></td>
+          <td><%= enrolled_student.email %></td>
+          <td>
+            <%= button_to("Delete", enrollment_path(@course.id, enrolled_student.id), method: :delete, class:"delete-button") %>
+          </td>
+        </tr>
+        <%number = number + 1%>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+<div class="divSpace"> </div>
+
+<div>
+  <p>List of All Students</p>
+
+
+<div class="divSpace"> </div>
+    
+      
+    <% if @students != nil %>
+    <%= form_with url: "/courses/#{@course.id}/enrollments", local: true do |f| %>
+
+
+    <table class="user-table">
+    <tbody>
+      <% number = 1 %>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>email</th>
+          <th>Select</th>
+        </tr>
+        <% @students.each do |student| %>
+        <tr>
+          <td><%= number %></td>
+          <td><%= student.first_name %></td>
+          <td><%= student.last_name %></td>
+          <td><%= student.email %></td>
+          <td><%= f.check_box "user_ids[]", {}, student.id, nil%></td>
+        </tr>
+        <%number = number + 1%>
+        <% end %>
+     <tr><td><td><td><td><td> <%= f.submit "Add Student", class:"btn"%></td></td> </td></td></td></tr>
+    </tbody>
+
+      </table>
+      <% end %>
+    <% end %>
+  
+
