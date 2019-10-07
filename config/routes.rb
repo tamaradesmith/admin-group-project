@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   delete '/courses/:course_id/enrollments/:student_id', {to: "enrollments#destroy", as: :enrollment}
   get '/courses/:course_id/enrollments', {to: "enrollments#index", as: :enrollments}
   
+  post '/courses/:course_id/enrollments/instructors', {to: "enrollments#instructor"}
   root 'welcome#home'
 
   resources :attendance, only: [:index, :show, :edit, :update]
