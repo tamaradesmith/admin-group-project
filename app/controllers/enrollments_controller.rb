@@ -22,7 +22,9 @@ class EnrollmentsController < ApplicationController
   end
 
   def destroy
-    
+    @enrollment = Enrollment.find_by(user_id: params[:student_id], course_id: @course.id)
+    @enrollment.destroy
+    redirect_to enrollments_path(@course)
   end
 
   private
