@@ -1,64 +1,97 @@
-<h3>Attendances Details</h3>
+<h4>Attendances for <%= @course.title%> </h4>
 
-<div class="card text-center">
-    <div class="card-body">
-        <h5 class="card-title"><%= @course.title%> Date: <%= params["date_val"]%></h5>
-        <%= form_with url: "/courses/#{@course.id}/attendances", local: true, method: 'GET' do |f|%>
-                <input type="date" name="date_val" id="date_val">
-                <%= f.submit "Search" %>
-            <% end%>
+    <div class="attendance-grid">
+        <p> Date: <%= params["date_val"]%></p>
+
+        <p class="filter-column">Different date: <%= form_with url: "/courses/#{@course.id}/attendances", local: true, method: 'GET' do |f|%>
+
+        <input type="date" name="date_val" id="date_val">
+            <%= f.submit "Search" %>
+        <% end%>
         
     </div>
-</div>
-
+<div class="divSpace-small"></div>
+<table class="user-table">
+<tbody>
+  <tr>
+      <th>Name</th>
+      <th>AM</th>
+      <th>PM</th>
+      <th>Evening</th>
+      <th>add</th>
+      </tr>
 <% @students.each do |student| %>
-<div style="display:flex;justify-content:space-around">
-    <span><%= student.full_name %></span>
-    <%if (student.attendance_id ) %>
-            <%= form_with url: "/courses/#{student.course_id}/attendances/#{student.attendance_id}", local: true, method: 'PATCH' do |f|%>
-                <label for="am">AM:</label>
+
+<tr>
+    <td><%= student.full_name %></td>
+     <%if (student.attendance_id ) %>
+
+          <%= form_with url: "/courses/#{student.course_id}/attendances/#{student.attendance_id}", local: true, method: 'PATCH' do |f|%>
+            <td >
+                <%# <label for="am">AM:</label>  %>
+               
                 <% [ 'no class', 'absent', 'present' ].each_with_index do |am,index| %>
+          
                     <%= radio_button_tag 'am', index, student.am == index %>
                     <%= am %>
+          
                 <% end %>
-                <label for="pm">PM:</label>
+            </td>
+
+            <td>
+                <%# <label for="pm">PM:</label> %>
                 <% [ 'no class', 'absent', 'present' ].each_with_index do |pm,index| %>
                     <%= radio_button_tag 'pm', index, student.pm == index %>
                     <%= pm %>
                 <% end %>
-                <label for="evening">Evening:</label>
+                </td>
+                <td>
+                <%# <label for="evening">Evening:</label> %>
                 <% [ 'no class', 'absent', 'present' ].each_with_index do |evening,index| %>
                     <%= radio_button_tag 'evening', index, student.evening == index %>
                     <%= evening %>
                 <% end %>
-                <%= f.submit "Edit" %>
+                </td>
+                <td>
+                <%= f.submit "Edit", class:"attendance-button btn" %>
             <% end%>
             <%= form_with url: "/attendances/#{student.attendance_id}", local: true, method: 'DELETE' do |f|%>
-                <%= f.submit "Delete" %>
+                <%= f.submit "Delete", class:"attendance-button btn" %>
             <% end%>
+            </td>
     <% else %>
-            <%= form_with url: "/courses/#{@course.id}/attendances", local: true do |f|%>
-                <label for="am">AM:</label>
+             <%= form_with url: "/courses/#{@course.id}/attendances", local: true do |f|%>
+             <td>  
+              <%# <label for="am">AM:</label> %>
                 <% [ 'no class', 'absent', 'present' ].each_with_index do |am,index| %>
                     <%= radio_button_tag 'am', index %>
                     <%= am %>
-                <% end %>
-                <label for="pm">PM:</label>
-                <% [ 'no class', 'absent', 'present' ].each_with_index do |pm,index| %>
-                    <%= radio_button_tag 'pm', index %>
-                    <%= pm %>
-                <% end %>
-                <label for="evening">Evening:</label>
+                <% end %> </td>
+
+
+               <td> 
+               <%# <label for="pm">PM:</label>   %>
+              <% [ 'no class', 'absent', 'present' ].each_with_index do |pm,index| %> 
+              
+                   <%= radio_button_tag 'pm', index %> 
+                    <%= pm %> 
+                <% end %> </td>
+                
+                <td>
+              <%# <label for="evening">Evening:</label> %>
                 <% [ 'no class', 'absent', 'present' ].each_with_index do |evening,index| %>
                     <%= radio_button_tag 'evening', index %>
                     <%= evening %>
-                <% end %>
+                <% end %> </td>
+
                 <%= f.hidden_field :user_id, value: student.user_id%>
                 <%= f.hidden_field :date, value: params["date_val"]%>
-            <%= f.submit "Add" %>
+          <td>  <%= f.submit "Add", class:"attendance-button btn" %> </td>
             <% end%>
     <%end%>
 
-</div>
+</tr>
 <% end %>
+</table>
+</tbody>
 <%#= will_paginate @students %>
