@@ -20,9 +20,11 @@ Rails.application.routes.draw do
   delete '/marks/:id', {to: "marks#destroy"}
 
 
-  resources :courses
+  resources :courses do
+    resources :attendances, only: [:index, :create, :update]
+    resources :attendances, shallow: true, only: [:destroy]
+  end
   root 'welcome#home'
-  resources :attendance, only: [:index, :show, :edit, :update]
   resources :users do
     collection { post :import }
   end

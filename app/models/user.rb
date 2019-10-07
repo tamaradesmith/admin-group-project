@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :courses, through: :enrollments, source: :course, dependent: :nullify
   has_many :assignments, dependent: :nullify
   has_many :course_assignments, through: :marks, source: :assignments
+  has_many :attended_courses, through: :attendances, source: :course
 
   def full_name
       "#{first_name} #{last_name}".strip
