@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :courses
   
   # Path for Enrollments
-  post '/courses/:course_id/users/:user_id/enrollments', {to: "enrollments#create"}
+  post '/courses/:course_id/enrollments', {to: "enrollments#create"}
   patch '/courses/:course_id/users/:user_id/enrollments/:id', {to: "enrollments#update"}
   delete 'enrollments/:id', {to: "enrollments#destroy"}
   get '/courses/:course_id/enrollments', {to: "enrollments#index", as: :enrollments}

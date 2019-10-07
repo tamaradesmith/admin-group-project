@@ -48,6 +48,10 @@ class CoursesController < ApplicationController
     redirect_to courses_path
   end
 
+  def enroll
+    
+  end
+  
   private
 
   def course_params

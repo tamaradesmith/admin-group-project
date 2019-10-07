@@ -5,10 +5,66 @@
 </div>
 
 <div>
+  <h3>Enrolled Students</h3>
+  <ul class="enrolled-students-list">
+  <% if @enrolled_students != nil %>
+      <table class="students-table">
+      <% number = 1 %>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+       
+        <% @enrolled_students.each do |enrolled_student| %>
+        <tr>
+          <td><%= number %></td>
+          <td><%= enrolled_student.first_name %></td>
+          <td><%= enrolled_student.last_name %></td>
+          <td><%= enrolled_student.email %></td>
+        </tr>
+        <%number = number + 1%>
+        <% end %>
+      </table>
+    <% end %>
+  </ul>
+</div>
+
+<div>
   <h3>List of All Students</h3>
   <p>Select students from the following list to be added to above class:</p><br />
+    
+      
+    <% if @students != nil %>
+    <%= form_with url: "/courses/#{@course.id}/enrollments", local: true do |f| %>
 
-  <% @students.each do |student| %>
 
-  <% end %>
+    <table class="students-table">
+      <% number = 1 %>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+          <th>Type</th>
+          <th>Select</th>
+        </tr>
+        <% @students.each do |student| %>
+        <tr>
+          <td><%= number %></td>
+          <td><%= student.first_name %></td>
+          <td><%= student.last_name %></td>
+          <td><%= student.email %></td>
+          <td><%= student.role.role%></td>
+          <td><%= f.check_box "user_ids[]", {}, student.id, nil%></td>
+        </tr>
+        <%number = number + 1%>
+        <% end %>
+      </table>
+      <%= f.submit "Add Student"%>
+      <% end %>
+    <% end %>
+  
 </div>
+
