@@ -1,6 +1,6 @@
 class AttendancesController < ApplicationController
-    before_action :find_attendance, only: [ :update]
-    before_action :find_course
+    before_action :find_attendance, only: [ :update, :destroy]
+    before_action :find_course, except: [:destroy]
 
     def create
         attendance = Attendance.new attendance_params
@@ -11,7 +11,6 @@ class AttendancesController < ApplicationController
             flash[:notice] = "Attendance created successfully"
         end
         # redirect_to course_attendances_path(@course, :date_val =>params[:date_val])
-        byebug
         redirect_to "/courses/#{@course.id}/attendances?date_val=#{attendance.date}"
     end
     
@@ -23,16 +22,21 @@ class AttendancesController < ApplicationController
         else
             @students = []
         end
-        # AND attendances.date = '#{params[:course_id]}'
     end
   
     def update
       if @attendance.update attendance_params
-        redirect_to course_attendances_path(@course)
+        redirect_to "/courses/#{@course.id}/attendances?date_val=#{attendance.date}"
       end
   
     end
   
+    def destroy
+        @course = Course.find(@attendance.course_id)
+        @attendance.destroy
+        redirect_to "/courses/#{@course.id}/attendances?date_val=#{attendance.date}"
+    end
+
     private
   
     def attendance_params
