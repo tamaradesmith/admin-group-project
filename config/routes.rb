@@ -20,8 +20,17 @@ Rails.application.routes.draw do
   delete '/marks/:id', {to: "marks#destroy"}
 
 
+  # Path for Courses
   resources :courses
+  
+  # Path for Enrollments
+  post '/courses/:course_id/enrollments', {to: "enrollments#create"}
+  patch '/courses/:course_id/users/:user_id/enrollments/:id', {to: "enrollments#update"}
+  delete 'enrollments/:id', {to: "enrollments#destroy"}
+  get '/courses/:course_id/enrollments', {to: "enrollments#index", as: :enrollments}
+  
   root 'welcome#home'
+
   resources :attendance, only: [:index, :show, :edit, :update]
   resources :users do
     collection { post :import }
