@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def index
     # byebug
-    if params[:role_id] != 'all' 
+    if params[:role_id] != 'all'  && params[:role_id]
       @users = User.where(role_id: params[:role_id])
     else
       @users = User.all
