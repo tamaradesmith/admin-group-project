@@ -89,7 +89,7 @@ USERS = User.all
     )
   end
 
-  PROGRAMS = ["bootcamp", "1-year Coding", "1-business", "coding fundamental"]
+  PROGRAMS = ["Bootcamp", "One Year Coding Diploma", "Business", "Coding Fundamentals"]
 
   PROGRAMS.each do |program|
     Program.create(
@@ -97,7 +97,7 @@ USERS = User.all
     )
   end
 
-  STATUS = ["ongoing", "completed", "setup", "archived"]
+  STATUS = ["Ongoing", "Completed", "Setup", "Archived"]
 
   STATUS.each do |stat|
     Status.create(
@@ -105,7 +105,7 @@ USERS = User.all
     )
   end
 
-  COURSES = ["cohort33", "bussiness_2019", "coding_2019", "fundametal_May_2019"]
+  COURSES = ["Cohort 33", "Business 45", "Coding Diploma 4", "Fundamentals 22"]
 
 COURSES.each do |course|
   i = 1
@@ -135,5 +135,5 @@ end
   user = User.all
   course = Course.all
 
-  puts user.count
-  puts course.count 
+  puts "Seeding created #{user.count} Users"
+  puts "Seeding created #{course.count} Courses"

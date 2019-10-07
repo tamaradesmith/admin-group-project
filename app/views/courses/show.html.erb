@@ -18,7 +18,20 @@
     <p class="grid-user-label"> Slack Group: </p>
     <p> <%= @course.slack_group %></p>
     <div class="grid-user-info">
+    <%= link_to "Your Marks", marks_path(@course, current_user), class:"course-button btn" %>
+    <%= link_to "Add Assignment", course_assignments_path(@course), class:"course-button btn" %>
     <%= link_to "Edit", edit_course_path(@course), class:"course-button btn" %>
     <%= link_to "Delete", course_path(@course), method: :delete, class:"course-button btn", data:{confirm: "Are you sure?"}%>
     </div>
   </div>
+
+
+<!-- marks_path(@course, @user) -->
+<!-- /courses/:course_id/users/:user_id/marks -->
+<!-- get "courses/:course_id/users/:user_id/marks" => "courses#marks" -->
+
+<!-- course_assignments_path -->
+<!-- /courses/:course_id/course_assignments -->
+
+
+<!-- match "courses/:course_id/users/:user_id/marks" => "courses#marks" -->
