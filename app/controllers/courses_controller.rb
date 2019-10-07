@@ -1,9 +1,23 @@
 class CoursesController < ApplicationController
   before_action :find_course, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @courses = Course.order(created_at: :desc)
-  end
+def index
+    if params[:filter]
+
+      if params[:filter].include?('program ')
+        return @courses = Course.where(program_id: params[:filter].split('program ')[1].to_i).order(created_at: :desc)
+      elsif params[:filter].include?('status ')
+        case params[:filter].split('status ')[1]
+        when 'all'
+            return @courses = Course.all.order(created_at: :desc)
+        end
+        return @courses = Course.where(status_id: params[:filter].split('status ')[1].to_i).order(created_at: :desc)
+      end
+    else
+      @courses = Course.all.order(created_at: :desc)
+    end
+        # @status = Status.all
+end
 
   def new
     @course = Course.new
