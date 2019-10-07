@@ -1,52 +1,60 @@
-<h4>Show Page</h4>
-<div class="divSpace">
-  <div class="user-div">
+<h4> <%= @course.title %> </h4>
+<div class="divSpace-small"> </div>
+  <div class="grid-course-show">
 
     <%=image_tag "#{@course.picture_url}", class:" user-pic"%>
 <p class="grid-user-label"> Class: </p>
- <p>   <%= @course.title %></p>
+ <p class="grid-colum-4">   <%= @course.title %></p>
 
 
     <p  class="grid-user-label">Program: </p>
     <p> <%= @program %></p>
     <p  class="grid-user-label"> Session: </p>
-    <p> <%= (@course.session) %></p>
+    <p class="grid-colum-4"> <%= (@course.session) %></p>
     <p  class="grid-user-label"> End Date:</p> 
-    <p> <%= (@course.end).to_formatted_s(:long) %></p>
+    <p class="grid-colum-4"> <%= (@course.end).to_formatted_s(:long) %> </p>
     <p  class="grid-user-label">Status:  </p>
     <p> <%= @status %></p>
     <p class="grid-user-label"> Slack Group: </p>
-    <p> <%= @course.slack_group %></p>
-    <div class="grid-user-info">
-    <%= link_to "Your Marks", marks_path(@course, current_user), class:"course-button btn" %>
+    <p class="grid-colum-4"> <%= @course.slack_group %></p>
+   
+  	<% if can? :manage, :all%>
+
     <%= link_to "Add Assignment", course_assignments_path(@course), class:"course-button btn" %>
+
+    <%= link_to "Add/Remove Student", enrollments_path(@course), class:"course-button btn" %>
+
     <%= link_to "Edit", edit_course_path(@course), class:"course-button btn" %>
+
+
     <%= link_to "Delete", course_path(@course), method: :delete, class:"course-button btn", data:{confirm: "Are you sure?"}%>
-    </div>
+		<% end %>
+
+    <%= link_to "Your Marks", marks_path(@course, current_user), class:"course-button btn grid-assigment-button" %>
   </div>
 
   
-  <div>
-    <h3>Enrolled Students</h3>
-    <ul class="enrolled-students-list">
-    <% if @enrolled_students != nil %>
-      <% @enrolled_students.each do |enrolled_student| %>
-        <li>
-          <p>
-            <%= enrolled_student.first_name%>
-          </p>
-        </li>
+<% if @enrolled_students != nil %>
+  <h4>Enrolled Students</h4>
+    <table class="user-table">
+      <tbody >
+        <tr>
+          <th> Frist Name </th>
+          <th> Last Name </th>
+          <th> Email </th>
+        </tr>
+          <% @enrolled_students.each do |enrolled_student| %>
+        <tr>
+          <td> <%= enrolled_student.first_name%> </td>
+          <td> <%= enrolled_student.last_name%> </td>
+          <td> <%= enrolled_student.email%> </td>
+        </tr>
       <% end %>
-    <% end %>
-    </ul>
-  </div>
+    </tbody>
+  </table>
 
-<!-- marks_path(@course, @user) -->
-<!-- /courses/:course_id/users/:user_id/marks -->
-<!-- get "courses/:course_id/users/:user_id/marks" => "courses#marks" -->
-
-<!-- course_assignments_path -->
-<!-- /courses/:course_id/course_assignments -->
+<% end %>
 
 
-<!-- match "courses/:course_id/users/:user_id/marks" => "courses#marks" -->
+<div class="divSpace"></div>
+

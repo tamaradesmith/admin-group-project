@@ -20,11 +20,22 @@
     
     <%= assignment.description %>
   </td>
-  	 <td>
-						<% if can? :manage, :all%>
-						<%= link_to "Edit Info", edit_assignment_path(assignment.id), class:"user-link" %>
-						<% end %>
-						</td>
+<<<<<<< HEAD
+		<td>
+			<% if can? :manage, :all%>
+			<%= link_to "Edit Info", edit_assignment_path(assignment.id), class:"user-link" %>
+			<% end %>
+		</td>
 </tr>
 <% end %>
-</ul>
+=======
+  	 <td>
+				<% if can? :manage, :all%>
+				<%= link_to "Edit Info", edit_assignment_path(assignment.id), class:"user-link" %>
+				<% end %>
+				</td>
+</tr>
+<% end %>
+</tbody>
+</table>
+>>>>>>> origin/development
