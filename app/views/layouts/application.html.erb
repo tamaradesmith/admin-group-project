@@ -37,8 +37,8 @@
       <div class="nav-item">  Attendance </div>
         <%#= link_to "Attendance", attendance_path, class:"nav-item"  %>
      
-        <%= link_to "Log Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"nav-item"  %>
-
+        <%#= link_to "Log Out", session_path(current_user.id), method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"nav-item :destroy" %>
+        <%= button_to "Log Out", session_path(current_user.id), :method=>:delete, :class=>:destroy %>
     </div>
 <% else %>
 
