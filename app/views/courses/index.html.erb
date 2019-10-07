@@ -60,6 +60,7 @@
 <tbody>
 	<tr>
 		<th> Course Title </th>
+			<th > Program </th>
 		<th > Session </th>
  </tr>
 <% @courses.each_with_index  do |course, index| %>
@@ -67,6 +68,7 @@
  		<td>
 			<%= link_to course.title, course_path(course), class:"user-link" %>
 		</td>
+				<td ><%= course.program.name %></td>
 		<td ><%= course.session %></td>
 	</tr>
 <% end %>
