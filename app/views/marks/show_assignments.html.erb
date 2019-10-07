@@ -27,26 +27,31 @@
         </tr>
 
         <% @marks.each do |mark| %>
+           <% if can? :manage, :all%>
             <tr>
                 <td><%= link_to mark.assignment_name , assignment_path(mark.assignment_id), class:"user-link"%></td>
 
                  <%if (mark.id ) %>
 
                 <td>
-                    <%= form_with url: "/course_assignments/#{mark.relation_ship_id}/users/#{mark.student_id}/marks/#{mark.id}", local: true, method: 'PATCH' do |f|%>
-                    <%= f.hidden_field :course_id, value: mark.course_id%>
-                    <%= f.text_field :grade, value: mark.grade, class:"list" %>
+           
+
+                        <%= form_with url: "/course_assignments/#{mark.relation_ship_id}/users/#{mark.student_id}/marks/#{mark.id}", local: true, method: 'PATCH' do |f|%>
+                        <%= f.hidden_field :course_id, value: mark.course_id%>
+                        <%= f.text_field :grade, value: mark.grade, class:"list" %>
+
 
                 </td>
-
-
                    <td> <%= f.submit "Edit", class:"btn" %>  </td>
-                <% end%> 
+        
 
+                <% end%> 
+                  <% if can? :manage, :all%>
                 <td>
                    <%= form_with url: "/marks/#{mark.id}", local: true, method: 'DELETE' do |f|%>
                     <%= f.submit "Delete", class:"btn" %>
                 </td>
+                <% end %>
             <% end%>
            
     <% else %>
@@ -55,15 +60,23 @@
                 <%= f.hidden_field :course_id, value: mark.course_id%>
                 <%= f.text_field :grade, class:"list"%>
                 </td>
+                  <% if can? :manage, :all%>
                 <td>
                 <%= f.submit "Add", class:"btn" %>
                 </td>
                 <td>
+                <% end %>
             <% end%>
     </td>
     <%end%>
 
 </tr>
+<% else %>
+<tr>
+ <td><%= link_to mark.assignment_name , assignment_path(mark.assignment_id), class:"user-link"%></td>
+<td> <%= mark.grade %> </td>
+</tr>
+<% end %>
 <% end %>
 </tbody>
 </table>
