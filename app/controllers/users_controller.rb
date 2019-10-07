@@ -30,7 +30,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    # byebug
+    if params[:role_id] != 'all' 
+      @users = User.where(role_id: params[:role_id])
+    else
+      @users = User.all
+      @roles = Role.all
+    end
+
+    
   end
 
   def edit
