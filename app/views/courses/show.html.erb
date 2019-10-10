@@ -51,7 +51,7 @@
           <td> <%= enrolled_student.first_name%> </td>
           <td> <%= enrolled_student.last_name%> </td>
           <td> <%= enrolled_student.email%> </td>
-          <td><%= link_to "Mark Assignment", marks_path(@course, enrolled_student), class:"course-button btn" %></td>
+          <td><%= link_to "Mark Assignment", marks_path(@course, enrolled_student), class:"user-link" %></td>
         </tr>
       <% end %>
     </tbody>

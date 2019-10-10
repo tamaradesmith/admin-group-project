@@ -42,14 +42,14 @@
 
 
                 </td>
-                   <td> <%= f.submit "Edit", class:"btn" %>  </td>
+                   <td> <%= f.submit "Edit", class:"user-link link-button link-font" %>  </td>
         
 
                 <% end%> 
                   <% if can? :manage, :all%>
                 <td>
                    <%= form_with url: "/marks/#{mark.id}", local: true, method: 'DELETE' do |f|%>
-                    <%= f.submit "Delete", class:"btn" %>
+                    <%= f.submit "Delete", class:"user-link link-button link-font" %>
                 </td>
                 <% end %>
             <% end%>
@@ -62,7 +62,7 @@
                 </td>
                   <% if can? :manage, :all%>
                 <td>
-                <%= f.submit "Add", class:"btn" %>
+                <%= f.submit "Add", class:"user-link link-button link-font" %>
                 </td>
                 <td>
                 <% end %>
