@@ -18,7 +18,7 @@ class AttendancesController < ApplicationController
     def index 
         @course = Course.find(params[:course_id])
         if params[:date_val]
-            @students = Course.select("users.id as user_id, concat_ws(' ',users.first_name,users.last_name) as full_name, attendances.id as attendance_id, attendances.am, attendances.pm, attendances.evening, attendances.date, courses.id as course_id").joins("INNER JOIN enrollments ON enrollments.course_id = courses.id INNER JOIN users ON enrollments.user_id = users.id LEFT JOIN attendances on attendances.user_id = users.id AND attendances.date = '#{params[:date_val]}'").where("courses.id = #{params[:course_id]} AND users.role_id = 2 ")
+            @students = Course.select("users.id as user_id, concat_ws(' ',users.first_name,users.last_name) as full_name, attendances.id as attendance_id, attendances.am, attendances.pm, attendances.evening, attendances.date, courses.id as course_id").joins("INNER JOIN enrollments ON enrollments.course_id = courses.id INNER JOIN users ON enrollments.user_id = users.id LEFT JOIN attendances on attendances.user_id = users.id AND attendances.date = '#{params[:date_val]}'").where("courses.id = #{params[:course_id]} AND users.role_id = 1 ")
         else
             @students = []
         end

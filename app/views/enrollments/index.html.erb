@@ -1,5 +1,7 @@
 <h4>Course Enrollment for <%= @course.title%></h4>
 
+<%= link_to "Click to return to #{@course.title} page", course_path(@course), class:"user-link" %>
+  <div class="divSpace"> </div>
 
   <p>Enrolled Students</p>
   <div class="divSpace"> </div>

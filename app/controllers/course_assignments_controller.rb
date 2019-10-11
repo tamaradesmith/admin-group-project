@@ -2,7 +2,7 @@ class CourseAssignmentsController < ApplicationController
     before_action :find_course_assignment, only: [ :update, :destroy]
     before_action :find_course, except: [:destroy]
     def index
-        @assignments = Assignment.select('assignments.name, assignments.id, course_assignments.due_date , course_assignments.user_id, courses.id as course_id, course_assignments.id as relation_ship_id ').joins("LEFT JOIN course_assignments ON course_assignments.assignment_id = assignments.id LEFT JOIN courses ON course_assignments.course_id = courses.id AND courses.id = #{@course.id}").paginate(page:params[:page],per_page:10)
+        @assignments = Assignment.select('assignments.name, assignments.id, course_assignments.due_date , course_assignments.user_id, courses.id as course_id, course_assignments.id as relation_ship_id ').joins("LEFT JOIN course_assignments ON course_assignments.assignment_id = assignments.id AND course_assignments.course_id = #{@course.id} LEFT JOIN courses ON course_assignments.course_id = courses.id").paginate(page:params[:page],per_page:10)
         @markers = User.all().where("role_id = 2")
     end
     
